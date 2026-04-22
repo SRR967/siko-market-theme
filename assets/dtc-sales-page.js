@@ -1,4 +1,40 @@
 (function () {
+  function cleanLeadingEmptySpace(productInfo) {
+    if (!productInfo) return;
+
+    const description = productInfo.querySelector('.product__description');
+    if (!description) return;
+
+    const children = Array.from(description.children);
+    for (const child of children) {
+      const hasImage = !!child.querySelector('img');
+      const text = (child.textContent || '').replace(/\u00a0/g, ' ').trim();
+      const html = (child.innerHTML || '').replace(/<br\s*\/?>/gi, '').trim();
+
+      if (hasImage || text.length > 0 || html.length > 0) break;
+      child.remove();
+    }
+  }
+
+  function cleanAllEmptyBlocks(productInfo) {
+    if (!productInfo) return;
+
+    const description = productInfo.querySelector('.product__description');
+    if (!description) return;
+
+    const blocks = Array.from(description.querySelectorAll('p, div, figure, span'));
+    blocks.forEach((block) => {
+      const hasImage = !!block.querySelector('img');
+      const hasMedia = !!block.querySelector('video, iframe');
+      const text = (block.textContent || '').replace(/\u00a0/g, ' ').trim();
+      const html = (block.innerHTML || '').replace(/<br\s*\/?>/gi, '').trim();
+
+      if (!hasImage && !hasMedia && text.length === 0 && html.length === 0) {
+        block.remove();
+      }
+    });
+  }
+
   function setupDescriptionImageAnimation(productInfo) {
     if (!productInfo) return;
 
@@ -39,10 +75,27 @@
     productInfo.dataset.dtcBuyButtonsMoved = 'true';
   }
 
+  function stripProductInfoToDescriptionAndForm(productInfo) {
+    if (!productInfo) return;
+
+    const container = productInfo.querySelector('.product__info-container');
+    const description = productInfo.querySelector('.product__description');
+    const productForm = productInfo.querySelector('product-form');
+    if (!container || !description || !productForm) return;
+
+    Array.from(container.children).forEach((child) => {
+      if (child === description || child === productForm) return;
+      child.remove();
+    });
+  }
+
   function init() {
     const productInfo = document.querySelector("product-info[id^='MainProduct-']");
     if (!productInfo) return;
+    cleanLeadingEmptySpace(productInfo);
+    cleanAllEmptyBlocks(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
+    stripProductInfoToDescriptionAndForm(productInfo);
     setupDescriptionImageAnimation(productInfo);
   }
 
@@ -54,7 +107,10 @@
 
   document.addEventListener('product-info:loaded', function (event) {
     const productInfo = event.target.closest("product-info[id^='MainProduct-']");
+    cleanLeadingEmptySpace(productInfo);
+    cleanAllEmptyBlocks(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
+    stripProductInfoToDescriptionAndForm(productInfo);
     setupDescriptionImageAnimation(productInfo);
   });
 })();

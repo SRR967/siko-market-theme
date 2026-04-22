@@ -3703,6 +3703,33 @@ details-disclosure > details {
   display: none !important;
 }
 
+.shopify-section-group-header-group .announcement-bar {
+  background: #388e3c !important;
+  border: 0 !important;
+}
+
+.shopify-section-group-header-group .announcement-bar__message,
+.shopify-section-group-header-group .announcement-bar__announcement,
+.shopify-section-group-header-group .announcement-bar__link {
+  color: #fff !important;
+}
+
+.shopify-section-group-header-group .announcement-bar__message {
+  padding: 0.8rem 0 !important;
+  min-height: 0 !important;
+}
+
+.shopify-section-group-header-group > .shopify-section:not(:first-child) {
+  display: none !important;
+}
+
+.shopify-section-group-header-group .shopify-section,
+.shopify-section-group-header-group .announcement-bar-section,
+.shopify-section-group-header-group .utility-bar {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 product-info[id^='MainProduct-'] .product__media-wrapper,
 product-info[id^='MainProduct-'] media-gallery,
 product-info[id^='MainProduct-'] .thumbnail-slider,
@@ -3726,6 +3753,7 @@ product-info[id^='MainProduct-'] .product__info-container {
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
+  background: #000 !important;
 }
 
 product-info[id^='MainProduct-'] .product {
@@ -3738,6 +3766,7 @@ product-info[id^='MainProduct-'] .product__description.rte {
   padding: 0 !important;
   max-width: none !important;
   width: 100vw !important;
+  background: #000 !important;
   position: relative;
   left: 50%;
   right: 50%;
@@ -3764,8 +3793,35 @@ product-info[id^='MainProduct-'] .product__description.rte p {
   line-height: 0 !important;
 }
 
+product-info[id^='MainProduct-'] .product__description > *,
+product-info[id^='MainProduct-'] .product__description.rte > * {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 product-info[id^='MainProduct-'] .product-form,
 product-info[id^='MainProduct-'] .product-form__buttons {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+}
+
+product-info[id^='MainProduct-'] .product-form {
+  background: #000 !important;
+}
+
+product-info[id^='MainProduct-'] .product-form__buttons > * {
+  margin: 0 !important;
+}
+
+product-info[id^='MainProduct-'] {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+main#MainContent .shopify-section.section:first-child {
   margin-top: 0 !important;
 }
 
@@ -3783,7 +3839,7 @@ product-info[id^='MainProduct-'] button[name='add'] {
 
 product-info[id^='MainProduct-'] .shopify-payment-button,
 product-info[id^='MainProduct-'] .shopify-payment-button__button {
-  display: block !important;
+  display: none !important;
   width: 100% !important;
 }
 
