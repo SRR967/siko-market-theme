@@ -12,6 +12,12 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "custom_liquid_WyQn6G": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"video-container-grid\">\n  <div class=\"video-item\">\n    <video autoplay muted loop playsinline>\n      <source src=\"https://cdn.shopify.com/videos/c/o/v/ca3e7391d64741ceb490c281744e85d8.mp4\" type=\"video/mp4\">\n    </video>\n  </div>\n  <div class=\"video-item\">\n    <video autoplay muted loop playsinline>\n      <source src=\"https://cdn.shopify.com/videos/c/o/v/e0756cf0ca314685a40b0a9e16ffb78f.mp4\" type=\"video/mp4\">\n    </video>\n  </div>\n</div>\n\n<style>\n  .video-container-grid {\n    display: grid;\n    grid-template-columns: 1fr 1fr; /* Esto crea las dos columnas */\n    gap: 10px; /* Espacio entre los videos */\n    padding: 10px 0;\n    width: 100%;\n  }\n  .video-item video {\n    width: 100%;\n    height: auto;\n    border-radius: 8px; /* Bordes redondeados como en tu imagen */\n    display: block;\n  }\n</style>"
+          }
+        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -57,6 +63,7 @@
         }
       },
       "block_order": [
+        "custom_liquid_WyQn6G",
         "vendor",
         "title",
         "price",
