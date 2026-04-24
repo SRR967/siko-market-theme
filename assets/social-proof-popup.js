@@ -12,8 +12,8 @@
 
   const fallbackImage = popup.dataset.productImage || '';
   const productTitle = popup.dataset.productTitle || 'Producto';
-  const defaultNames = ['Eduardo...', 'Camila...', 'Daniel...', 'Valentina...', 'Laura...'];
-  const defaultLocations = ['Cartagena', 'Medellin', 'Bogota', 'Cali', 'Barranquilla'];
+  const defaultNames = ['Eduardo...', 'Camila...', 'Daniel...', 'Valentina...', 'Laura...','David...','Juan...','Pedro...','Maria...','Ana...','Luis...','Carlos...','Jorge...','Andres...','Diego...','Jose...','Miguel...'];
+  const defaultLocations = ['Cartagena', 'Medellin', 'Bogota', 'Cali', 'Barranquilla','Armenia','Pereira','Bucaramanga','Santa Marta','Ibague','Neiva','Popayan'];
   const variantImageMap = JSON.parse(popup.dataset.variantImages || '{}');
   const sequence = defaultNames.map((name, index) => ({
     name,

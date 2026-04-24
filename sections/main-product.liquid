@@ -3,11 +3,16 @@
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
+  data-product-handle="{{ product.handle }}"
   data-update-url="true"
   data-url="{{ product.url }}"
   {% if section.settings.image_zoom == 'hover' %}
     data-zoom-on-hover
   {% endif %}
+  {%- if product.handle == 'apolo-balsamo' -%}
+    data-apolo-mp4-a="https://cdn.shopify.com/videos/c/o/v/e0756cf0ca314685a40b0a9e16ffb78f.mp4"
+    data-apolo-mp4-b="https://cdn.shopify.com/videos/c/o/v/ca3e7391d64741ceb490c281744e85d8.mp4"
+  {%- endif -%}
 >
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}

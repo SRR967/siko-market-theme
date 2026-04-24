@@ -75,6 +75,58 @@
     productInfo.dataset.dtcBuyButtonsMoved = 'true';
   }
 
+  function insertApoloVideoGridAfterFourthImage(productInfo) {
+    if (!productInfo) return;
+
+    const description = productInfo.querySelector('.product__description');
+    if (!description || description.querySelector('.video-container-grid')) return;
+
+    const handle = (productInfo.getAttribute('data-product-handle') || '').toLowerCase().trim();
+    if (handle !== 'apolo-balsamo') return;
+
+    const url1 = productInfo.getAttribute('data-apolo-mp4-a');
+    const url2 = productInfo.getAttribute('data-apolo-mp4-b');
+    if (!url1 || !url2) return;
+
+    const images = description.querySelectorAll('img');
+    if (!images.length) return;
+
+    const index = images.length >= 4 ? 3 : images.length - 1;
+    const targetImage = images[index];
+    const anchor = targetImage.closest('p, div, figure') || targetImage;
+
+    const grid = document.createElement('div');
+    grid.className = 'video-container-grid';
+    grid.setAttribute('data-apolo-video-grid', 'true');
+    grid.innerHTML =
+      '<div class="video-item">' +
+      '<video autoplay muted loop playsinline preload="metadata">' +
+      '<source src="' +
+      url1 +
+      '" type="video/mp4">' +
+      '</video>' +
+      '</div>' +
+      '<div class="video-item">' +
+      '<video autoplay muted loop playsinline preload="metadata">' +
+      '<source src="' +
+      url2 +
+      '" type="video/mp4">' +
+      '</video>' +
+      '</div>';
+
+    anchor.insertAdjacentElement('afterend', grid);
+  }
+
+  function scheduleApoloVideoInsert(productInfo) {
+    insertApoloVideoGridAfterFourthImage(productInfo);
+    window.requestAnimationFrame(function () {
+      insertApoloVideoGridAfterFourthImage(productInfo);
+    });
+    window.setTimeout(function () {
+      insertApoloVideoGridAfterFourthImage(productInfo);
+    }, 250);
+  }
+
   function stripProductInfoToDescriptionAndForm(productInfo) {
     if (!productInfo) return;
 
@@ -94,6 +146,7 @@
     if (!productInfo) return;
     cleanLeadingEmptySpace(productInfo);
     cleanAllEmptyBlocks(productInfo);
+    scheduleApoloVideoInsert(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
     stripProductInfoToDescriptionAndForm(productInfo);
     setupDescriptionImageAnimation(productInfo);
@@ -109,6 +162,7 @@
     const productInfo = event.target.closest("product-info[id^='MainProduct-']");
     cleanLeadingEmptySpace(productInfo);
     cleanAllEmptyBlocks(productInfo);
+    scheduleApoloVideoInsert(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
     stripProductInfoToDescriptionAndForm(productInfo);
     setupDescriptionImageAnimation(productInfo);
