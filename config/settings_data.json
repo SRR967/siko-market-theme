@@ -154,7 +154,7 @@
       },
       "9535092338106386463": {
         "type": "shopify://apps/releasit-bundle/blocks/app-embed/019c9545-b89c-75b6-a4e1-5c7cd764ca36",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     },
