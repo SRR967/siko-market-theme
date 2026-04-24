@@ -54,12 +54,6 @@
           "settings": {
             "share_label": "Share"
           }
-        },
-        "custom_liquid_WyQn6G": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<div class=\"custom-video-wrapper\">\n  <div class=\"v-col\">\n    <video autoplay muted loop playsinline poster=\"\">\n      <source src=\"https://cdn.shopify.com/videos/c/o/v/ca3e7391d64741ceb490c281744e85d8.mp4\" type=\"video/mp4\">\n    </video>\n  </div>\n  <div class=\"v-col\">\n    <video autoplay muted loop playsinline poster=\"\">\n      <source src=\"https://cdn.shopify.com/videos/c/o/v/e0756cf0ca314685a40b0a9e16ffb78f.mp4\" type=\"video/mp4\">\n    </video>\n  </div>\n</div>\n\n<style>\n  .custom-video-wrapper {\n    display: flex !important;\n    flex-direction: row !important;\n    gap: 8px !important;\n    width: 100% !important;\n    margin: 15px 0 !important;\n    clear: both;\n  }\n  .v-col {\n    flex: 1 !important;\n    width: 50% !important;\n  }\n  .v-col video {\n    width: 100% !important;\n    height: auto !important;\n    border-radius: 12px !important;\n    box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n    display: block !important;\n  }\n</style>"
-          }
         }
       },
       "block_order": [
@@ -70,8 +64,7 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share",
-        "custom_liquid_WyQn6G"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
