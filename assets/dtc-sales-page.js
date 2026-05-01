@@ -80,10 +80,6 @@
 
     const description = productInfo.querySelector('.product__description');
     if (!description || description.querySelector('.video-container-grid')) return;
-
-    const handle = (productInfo.getAttribute('data-product-handle') || '').toLowerCase().trim();
-    if (handle !== 'apolo-balsamo' && handle !== 'biohack-mind') return;
-
     const url1 = productInfo.getAttribute('data-dtc-video-a');
     const url2 = productInfo.getAttribute('data-dtc-video-b');
     if (!url1 || !url2) return;
