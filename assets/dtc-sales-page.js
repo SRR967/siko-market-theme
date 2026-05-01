@@ -75,17 +75,17 @@
     productInfo.dataset.dtcBuyButtonsMoved = 'true';
   }
 
-  function insertApoloVideoGridAfterFourthImage(productInfo) {
+  function insertProductVideoGridAfterFourthImage(productInfo) {
     if (!productInfo) return;
 
     const description = productInfo.querySelector('.product__description');
     if (!description || description.querySelector('.video-container-grid')) return;
 
     const handle = (productInfo.getAttribute('data-product-handle') || '').toLowerCase().trim();
-    if (handle !== 'apolo-balsamo') return;
+    if (handle !== 'apolo-balsamo' && handle !== 'biohack-mind') return;
 
-    const url1 = productInfo.getAttribute('data-apolo-mp4-a');
-    const url2 = productInfo.getAttribute('data-apolo-mp4-b');
+    const url1 = productInfo.getAttribute('data-dtc-video-a');
+    const url2 = productInfo.getAttribute('data-dtc-video-b');
     if (!url1 || !url2) return;
 
     const images = description.querySelectorAll('img');
@@ -117,13 +117,13 @@
     anchor.insertAdjacentElement('afterend', grid);
   }
 
-  function scheduleApoloVideoInsert(productInfo) {
-    insertApoloVideoGridAfterFourthImage(productInfo);
+  function scheduleVideoInsert(productInfo) {
+    insertProductVideoGridAfterFourthImage(productInfo);
     window.requestAnimationFrame(function () {
-      insertApoloVideoGridAfterFourthImage(productInfo);
+      insertProductVideoGridAfterFourthImage(productInfo);
     });
     window.setTimeout(function () {
-      insertApoloVideoGridAfterFourthImage(productInfo);
+      insertProductVideoGridAfterFourthImage(productInfo);
     }, 250);
   }
 
@@ -146,7 +146,7 @@
     if (!productInfo) return;
     cleanLeadingEmptySpace(productInfo);
     cleanAllEmptyBlocks(productInfo);
-    scheduleApoloVideoInsert(productInfo);
+    scheduleVideoInsert(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
     stripProductInfoToDescriptionAndForm(productInfo);
     setupDescriptionImageAnimation(productInfo);
@@ -162,7 +162,7 @@
     const productInfo = event.target.closest("product-info[id^='MainProduct-']");
     cleanLeadingEmptySpace(productInfo);
     cleanAllEmptyBlocks(productInfo);
-    scheduleApoloVideoInsert(productInfo);
+    scheduleVideoInsert(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
     stripProductInfoToDescriptionAndForm(productInfo);
     setupDescriptionImageAnimation(productInfo);

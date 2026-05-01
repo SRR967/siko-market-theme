@@ -42,42 +42,6 @@
       assign only_empty_brand = true
     endif
   -%}
-  <div class="dtc-footer-custom page-width">
-    <div class="dtc-footer-custom__logo">
-      <img
-        src="https://cdn.shopify.com/s/files/1/0810/9401/7282/files/Siko_1_c27c3802-617e-4f1a-b209-861c52ade4b7.png?v=1774809564"
-        alt="{{ shop.name | escape }}"
-        loading="lazy"
-        width="220"
-        height="96"
-      >
-    </div>
-    <div class="dtc-footer-custom__grid">
-      <div class="dtc-footer-custom__column">
-        <h3>Preguntas Frecuentes</h3>
-        <ul class="list-unstyled">
-          <li><a href="/pages/preguntas-frecuentes">Preguntas Frecuentes</a></li>
-        </ul>
-      </div>
-      <div class="dtc-footer-custom__column">
-        <h3>Políticas</h3>
-        <ul class="list-unstyled">
-          {% if shop.privacy_policy != blank %}
-            <li><a href="{{ shop.privacy_policy.url }}">Políticas de privacidad</a></li>
-          {% endif %}
-          {% if shop.terms_of_service != blank %}
-            <li><a href="{{ shop.terms_of_service.url }}">Términos de servicio</a></li>
-          {% endif %}
-          {% if shop.shipping_policy != blank %}
-            <li><a href="{{ shop.shipping_policy.url }}">Tiempos de envío</a></li>
-          {% endif %}
-          {% if shop.refund_policy != blank %}
-            <li><a href="{{ shop.refund_policy.url }}">Políticas de devoluciones</a></li>
-          {% endif %}
-        </ul>
-      </div>
-    </div>
-  </div>
   {%- if section.blocks.size > 0
     or section.settings.newsletter_enable
     or section.settings.show_social
