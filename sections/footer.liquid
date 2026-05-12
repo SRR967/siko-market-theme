@@ -153,6 +153,8 @@
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
                       {%- endif -%}
                     </div>
+                  {%- when 'custom_liquid' -%}
+                    {{ block.settings.custom_liquid }}
                 {%- endcase -%}
               </div>
             {%- endfor -%}
@@ -419,6 +421,17 @@
             }
           ],
           "default": "center"
+        }
+      ]
+    },
+    {
+      "type": "custom_liquid",
+      "name": "Custom Liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom Liquid"
         }
       ]
     }
