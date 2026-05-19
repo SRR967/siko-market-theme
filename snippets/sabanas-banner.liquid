@@ -1,0 +1,74 @@
+<div class="sabanas-marquee-wrapper">
+  <div class="sabanas-marquee-track">
+    <div class="sabanas-marquee-content">
+      <span class="sabanas-marquee-item">✦ PAGO CONTRAENTREGA</span>
+      <span class="sabanas-marquee-item">✦ ENVÍO GRATIS</span>
+      <span class="sabanas-marquee-item">✦ PAGO CONTRAENTREGA</span>
+      <span class="sabanas-marquee-item">✦ ENVÍO GRATIS</span>
+      <span class="sabanas-marquee-item">✦ PAGO CONTRAENTREGA</span>
+      <span class="sabanas-marquee-item">✦ ENVÍO GRATIS</span>
+      <span class="sabanas-marquee-item">✦ PAGO CONTRAENTREGA</span>
+      <span class="sabanas-marquee-item">✦ ENVÍO GRATIS</span>
+    </div>
+    <div class="sabanas-marquee-content" aria-hidden="true">
+      <span class="sabanas-marquee-item">✦ PAGO CONTRAENTREGA</span>
+      <span class="sabanas-marquee-item">✦ ENVÍO GRATIS</span>
+      <span class="sabanas-marquee-item">✦ PAGO CONTRAENTREGA</span>
+      <span class="sabanas-marquee-item">✦ ENVÍO GRATIS</span>
+      <span class="sabanas-marquee-item">✦ PAGO CONTRAENTREGA</span>
+      <span class="sabanas-marquee-item">✦ ENVÍO GRATIS</span>
+      <span class="sabanas-marquee-item">✦ PAGO CONTRAENTREGA</span>
+      <span class="sabanas-marquee-item">✦ ENVÍO GRATIS</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sabanas-marquee-wrapper {
+    width: 100%;
+    background-color: #F59C00;
+    border-top: 3px solid #111111;
+    border-bottom: 3px solid #111111;
+    overflow: hidden;
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
+
+  .sabanas-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: sabanas-scroll 14s linear infinite;
+  }
+
+  .sabanas-marquee-content {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  .sabanas-marquee-item {
+    font-family: 'Arial Black', 'Arial Bold', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    padding: 0 32px;
+  }
+
+  @keyframes sabanas-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @media screen and (max-width: 749px) {
+    .sabanas-marquee-item {
+      font-size: 16px;
+      padding: 0 24px;
+    }
+    .sabanas-marquee-wrapper {
+      padding: 8px 0;
+    }
+  }
+</style>

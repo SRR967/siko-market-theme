@@ -496,6 +496,11 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
+                {%- if product.handle == 'sabanas-100-garantizadas-1' -%}
+                  <div class="sabanas-banner-container" style="margin-top: 15px; margin-bottom: 30px;">
+                    {% render 'sabanas-banner' %}
+                  </div>
+                {%- endif -%}
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">

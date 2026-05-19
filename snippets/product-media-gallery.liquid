@@ -154,6 +154,11 @@
       </button>
     </div>
   </slider-component>
+  {%- if product.handle == 'sabanas-100-garantizadas-1' -%}
+    <div style="margin-top: 15px; margin-bottom: 15px; width: 100%;">
+      {% render 'sabanas-banner' %}
+    </div>
+  {%- endif -%}
   {%- if first_3d_model -%}
     <button
       class="button button--full-width product__xr-button"
