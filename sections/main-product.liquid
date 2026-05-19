@@ -47,6 +47,36 @@
     }
   {%- endstyle -%}
 
+  {%- if product.handle == 'sabanas-100-garantizadas-1' -%}
+    <style>
+      product-info#MainProduct-{{ section.id }},
+      product-info#MainProduct-{{ section.id }}.gradient {
+        --color-background: 13, 13, 13;
+        --gradient-background: #0d0d0d;
+        --color-foreground: 245, 156, 0;
+        --color-secondary-text: 200, 200, 200;
+        --color-shadow: 0, 0, 0;
+        background: #0d0d0d !important;
+        background-image: none !important;
+        color: #F59C00 !important;
+      }
+      product-info#MainProduct-{{ section.id }} .product__title,
+      product-info#MainProduct-{{ section.id }} .product__title h1,
+      product-info#MainProduct-{{ section.id }} .product__title a {
+        color: #F59C00 !important;
+      }
+      product-info#MainProduct-{{ section.id }} .price,
+      product-info#MainProduct-{{ section.id }} .price-item,
+      product-info#MainProduct-{{ section.id }} .price__regular .price-item {
+        color: #F59C00 !important;
+      }
+      product-info#MainProduct-{{ section.id }} .product__info-container,
+      product-info#MainProduct-{{ section.id }} .product__media-wrapper {
+        background: #0d0d0d !important;
+      }
+    </style>
+  {%- endif -%}
+
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}

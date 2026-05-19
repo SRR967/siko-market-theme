@@ -1,4 +1,10 @@
 (function () {
+  // Early: add body class synchronously so CSS applies before paint
+  (function () {
+    var pi = document.querySelector("product-info[data-product-handle='sabanas-100-garantizadas-1']");
+    if (pi) document.body.classList.add('sabanas-dark-hero');
+  })();
+
   function cleanLeadingEmptySpace(productInfo) {
     if (!productInfo) return;
 
@@ -58,6 +64,44 @@
     );
 
     images.forEach((image) => observer.observe(image));
+  }
+
+  function setupInjectedElementsAnimation(productInfo) {
+    if (!productInfo) return;
+    var description = productInfo.querySelector('.product__description');
+    if (!description) return;
+
+    var selectors = [
+      '.sabanas-text-block',
+      '.sabanas-carousel',
+      '.sabanas-promo-img',
+      '.sabanas-faq'
+    ];
+
+    var elements = description.querySelectorAll(selectors.join(','));
+    if (!elements.length) return;
+
+    elements.forEach(function (el) {
+      if (el.dataset.sabanasAnimInit) return;
+      el.dataset.sabanasAnimInit = 'true';
+      el.classList.add('sabanas-enter');
+    });
+
+    var animObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('sabanas-visible');
+        animObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+
+    elements.forEach(function (el) { animObserver.observe(el); });
+  }
+
+  function setupSabanasDarkHero(productInfo) {
+    if (!productInfo) return;
+    if (productInfo.getAttribute('data-product-handle') !== 'sabanas-100-garantizadas-1') return;
+    document.body.classList.add('sabanas-dark-hero');
   }
 
   function moveBuyButtonsAfterFirstImage(productInfo) {
@@ -470,12 +514,14 @@
     if (!productInfo) return;
     cleanLeadingEmptySpace(productInfo);
     cleanAllEmptyBlocks(productInfo);
+    setupSabanasDarkHero(productInfo);
     scheduleVideoInsert(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
     insertSabanasTextBlock(productInfo);
     insertSabanasTextBlock4(productInfo);
     stripProductInfoToDescriptionAndForm(productInfo);
     setupDescriptionImageAnimation(productInfo);
+    window.setTimeout(function () { setupInjectedElementsAnimation(productInfo); }, 100);
   }
 
   if (document.readyState === 'loading') {
@@ -488,11 +534,13 @@
     const productInfo = event.target.closest("product-info[id^='MainProduct-']");
     cleanLeadingEmptySpace(productInfo);
     cleanAllEmptyBlocks(productInfo);
+    setupSabanasDarkHero(productInfo);
     scheduleVideoInsert(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
     insertSabanasTextBlock(productInfo);
     insertSabanasTextBlock4(productInfo);
     stripProductInfoToDescriptionAndForm(productInfo);
     setupDescriptionImageAnimation(productInfo);
+    window.setTimeout(function () { setupInjectedElementsAnimation(productInfo); }, 100);
   });
 })();

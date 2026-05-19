@@ -4267,6 +4267,117 @@ product-info[id^='MainProduct-'] .product__description img.sabanas-promo-img {
   padding: 0 !important;
 }
 
+/* Scroll-triggered fade-in for injected sabanas elements */
+product-info[id^='MainProduct-'] .product__description .sabanas-enter,
+product-info[id^='MainProduct-'] .product__description.rte .sabanas-enter {
+  opacity: 0 !important;
+  transform: translateY(24px) !important;
+  transition: opacity 0.65s ease, transform 0.65s ease !important;
+}
+
+product-info[id^='MainProduct-'] .product__description .sabanas-enter.sabanas-visible,
+product-info[id^='MainProduct-'] .product__description.rte .sabanas-enter.sabanas-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ── Sábanas dark hero (only for sabanas-100-garantizadas-1) ── */
+
+/* Announcement bar override — beats the hardcoded #388e3c on line 3708 */
+body.sabanas-dark-hero .shopify-section-group-header-group .announcement-bar,
+body.sabanas-dark-hero .utility-bar,
+body.sabanas-dark-hero .utility-bar.gradient,
+body.sabanas-dark-hero .announcement-bar-section .utility-bar {
+  --color-background: 13, 13, 13 !important;
+  --gradient-background: #0d0d0d !important;
+  --color-foreground: 245, 156, 0 !important;
+  background: #0d0d0d !important;
+  background-color: #0d0d0d !important;
+  background-image: none !important;
+  border: 0 !important;
+}
+
+body.sabanas-dark-hero .utility-bar .announcement-bar__message,
+body.sabanas-dark-hero .utility-bar .announcement-bar__link,
+body.sabanas-dark-hero .utility-bar .announcement-bar__message span,
+body.sabanas-dark-hero .shopify-section-group-header-group .announcement-bar__message,
+body.sabanas-dark-hero .shopify-section-group-header-group .announcement-bar__link,
+body.sabanas-dark-hero .utility-bar p {
+  color: #F59C00 !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+}
+
+body.sabanas-dark-hero product-info[id^='MainProduct-'] {
+  --color-background: 13, 13, 13 !important;
+  --gradient-background: #0d0d0d !important;
+  --color-foreground: 245, 156, 0 !important;
+  background: #0d0d0d !important;
+  background-color: #0d0d0d !important;
+  background-image: none !important;
+}
+
+/* Override Dawn's .gradient class effect */
+body.sabanas-dark-hero product-info[id^='MainProduct-'].gradient {
+  background: #0d0d0d !important;
+  background-image: none !important;
+}
+
+/* Entire shopify section wrapper */
+body.sabanas-dark-hero .shopify-section:has(product-info[id^='MainProduct-']) {
+  background: #0d0d0d !important;
+}
+
+/* Media gallery */
+body.sabanas-dark-hero .product__media-gallery,
+body.sabanas-dark-hero .product-media-gallery,
+body.sabanas-dark-hero .product__media-wrapper,
+body.sabanas-dark-hero .product__media-container,
+body.sabanas-dark-hero .product__info-container {
+  background: #0d0d0d !important;
+}
+
+/* Title */
+body.sabanas-dark-hero .product__title,
+body.sabanas-dark-hero .product__title h1,
+body.sabanas-dark-hero .product__title a {
+  color: #F59C00 !important;
+}
+
+/* Breadcrumb & vendor */
+body.sabanas-dark-hero .breadcrumb,
+body.sabanas-dark-hero .breadcrumb a,
+body.sabanas-dark-hero .breadcrumb span,
+body.sabanas-dark-hero .product__vendor,
+body.sabanas-dark-hero .product__vendor a {
+  color: rgba(245, 156, 0, 0.8) !important;
+}
+
+/* Price */
+body.sabanas-dark-hero .price,
+body.sabanas-dark-hero .price__regular,
+body.sabanas-dark-hero .price__sale,
+body.sabanas-dark-hero .price-item,
+body.sabanas-dark-hero .price-item--regular,
+body.sabanas-dark-hero .price-item--sale {
+  color: #F59C00 !important;
+}
+
+/* Variant labels */
+body.sabanas-dark-hero .product-form__input label,
+body.sabanas-dark-hero .product-form__input .form__label,
+body.sabanas-dark-hero fieldset legend,
+body.sabanas-dark-hero .variant-radios label {
+  color: #F59C00 !important;
+}
+
+/* General text */
+body.sabanas-dark-hero product-info[id^='MainProduct-'] .product__info-container p,
+body.sabanas-dark-hero product-info[id^='MainProduct-'] .product__info-container span:not([class*="price"]) {
+  color: #e0e0e0 !important;
+}
+
 /* DTC footer using Dawn native blocks */
 .footer {
   background: #f5f5f5 !important;
