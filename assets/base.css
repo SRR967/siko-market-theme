@@ -3705,7 +3705,7 @@ details-disclosure > details {
 }
 
 .shopify-section-group-header-group .announcement-bar {
-  background: #388e3c !important;
+  background: transparent !important;
   border: 0 !important;
 }
 
