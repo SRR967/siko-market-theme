@@ -104,6 +104,27 @@
     document.body.classList.add('sabanas-dark-hero');
   }
 
+  function setupBiohackAnnouncement(productInfo) {
+    if (!productInfo) return;
+    if (productInfo.getAttribute('data-product-handle') !== 'biohack-mind-d-p') return;
+
+    document.body.classList.add('biohack-announcement');
+
+    // Change all announcement bar text spans to the new text
+    var announcementSpans = document.querySelectorAll('.announcement-bar__message span, .announcement-bar__announcement span');
+    announcementSpans.forEach(function (span) {
+      span.textContent = 'Producto importado \uD83C\uDDFA\uD83C\uDDF8';
+    });
+
+    // Also update any plain <p> text in case span is empty
+    var announcementMsgs = document.querySelectorAll('.announcement-bar__message');
+    announcementMsgs.forEach(function (p) {
+      if (!p.querySelector('span')) {
+        p.textContent = 'Producto importado \uD83C\uDDFA\uD83C\uDDF8';
+      }
+    });
+  }
+
   function moveBuyButtonsAfterFirstImage(productInfo) {
     if (!productInfo || productInfo.dataset.dtcBuyButtonsMoved === 'true') return;
 
@@ -515,6 +536,7 @@
     cleanLeadingEmptySpace(productInfo);
     cleanAllEmptyBlocks(productInfo);
     setupSabanasDarkHero(productInfo);
+    setupBiohackAnnouncement(productInfo);
     scheduleVideoInsert(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
     insertSabanasTextBlock(productInfo);
@@ -535,6 +557,7 @@
     cleanLeadingEmptySpace(productInfo);
     cleanAllEmptyBlocks(productInfo);
     setupSabanasDarkHero(productInfo);
+    setupBiohackAnnouncement(productInfo);
     scheduleVideoInsert(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
     insertSabanasTextBlock(productInfo);

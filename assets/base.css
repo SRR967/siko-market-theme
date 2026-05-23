@@ -3809,7 +3809,7 @@ product-info[id^='MainProduct-'] .product-form__buttons {
 }
 
 product-info[id^='MainProduct-'] .product-form {
-  background: #000 !important;
+  background: #fff !important;
 }
 
 product-info[id^='MainProduct-'] .product-form__buttons > * {
@@ -4281,6 +4281,16 @@ product-info[id^='MainProduct-'] .product__description.rte .sabanas-enter.sabana
   transform: translateY(0) !important;
 }
 
+/* ── Biohack Mind announcement bar ── */
+body.biohack-announcement .announcement-bar__message,
+body.biohack-announcement .announcement-bar__announcement,
+body.biohack-announcement .announcement-bar__message span,
+body.biohack-announcement .utility-bar p {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+}
+
 /* ── Sábanas dark hero (only for sabanas-100-garantizadas-1) ── */
 
 /* Announcement bar override — beats the hardcoded #388e3c on line 3708 */
@@ -4370,6 +4380,11 @@ body.sabanas-dark-hero .product-form__input .form__label,
 body.sabanas-dark-hero fieldset legend,
 body.sabanas-dark-hero .variant-radios label {
   color: #F59C00 !important;
+}
+
+/* Keep form background dark on sabanas hero */
+body.sabanas-dark-hero product-info[id^='MainProduct-'] .product-form {
+  background: #0d0d0d !important;
 }
 
 /* General text */
