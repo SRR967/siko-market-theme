@@ -104,6 +104,93 @@
     document.body.classList.add('sabanas-dark-hero');
   }
 
+  // Finds the first visible clickable buy button in the product form area
+  function findSabanasVisibleBuyButton(productInfo) {
+    var form = productInfo.querySelector('product-form') || productInfo.querySelector('.product-form');
+    if (!form) return null;
+    var candidates = form.querySelectorAll('button, a[href]');
+    for (var i = 0; i < candidates.length; i++) {
+      var el = candidates[i];
+      var cs = window.getComputedStyle(el);
+      if (cs.display !== 'none' && cs.visibility !== 'hidden' && el.offsetParent !== null) {
+        return el;
+      }
+    }
+    return null;
+  }
+
+  function applyGoldStyleToBtn(btn) {
+    btn.style.setProperty('background', 'linear-gradient(135deg,#F5A800,#d48000)', 'important');
+    btn.style.setProperty('background-color', '#F5A800', 'important');
+    btn.style.setProperty('color', '#0d0d0d', 'important');
+    btn.style.setProperty('font-weight', '800', 'important');
+    btn.style.setProperty('border-color', '#d48000', 'important');
+    btn.style.setProperty('border-radius', '8px', 'important');
+    btn.style.setProperty('box-shadow', '0 4px 20px rgba(245,168,0,0.5)', 'important');
+    btn.dataset.sabanasGold = '1';
+  }
+
+  function setupSabanasGoldenButton(productInfo) {
+    if (!productInfo) return;
+    if (productInfo.getAttribute('data-product-handle') !== 'sabanas-100-garantizadas-1') return;
+
+    function paintButtons() {
+      var form = productInfo.querySelector('product-form') || productInfo.querySelector('.product-form');
+      if (!form) return;
+      form.querySelectorAll('button, a').forEach(function (el) {
+        if (el.dataset.sabanasGold) return;
+        var cs = window.getComputedStyle(el);
+        if (cs.display !== 'none' && cs.visibility !== 'hidden' && el.offsetParent !== null) {
+          applyGoldStyleToBtn(el);
+        }
+      });
+    }
+
+    // Run at 500ms, 1500ms, 3000ms to catch late-loading app buttons
+    [500, 1500, 3000].forEach(function (t) { window.setTimeout(paintButtons, t); });
+
+    // MutationObserver to catch dynamically added app buttons
+    var mo = new MutationObserver(paintButtons);
+    mo.observe(productInfo, { childList: true, subtree: true });
+  }
+
+  function setupSabanasImageClickToBuy(productInfo) {
+    if (!productInfo) return;
+    if (productInfo.getAttribute('data-product-handle') !== 'sabanas-100-garantizadas-1') return;
+    if (productInfo.dataset.sabanasImgClickSetup === 'true') return;
+    productInfo.dataset.sabanasImgClickSetup = 'true';
+
+    var description = productInfo.querySelector('.product__description');
+    if (!description) return;
+
+    // Event delegation: any image click → scroll to form → click buy button
+    description.addEventListener('click', function (e) {
+      var target = e.target;
+      if (target.tagName !== 'IMG') return;
+
+      var productForm = productInfo.querySelector('product-form') || productInfo.querySelector('.product-form');
+      if (productForm) {
+        productForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // After scroll animation, find and click the visible buy button
+      window.setTimeout(function () {
+        var btn = findSabanasVisibleBuyButton(productInfo);
+        if (btn) btn.click();
+      }, 600);
+    });
+
+    // Pointer cursor on existing + future images
+    description.querySelectorAll('img').forEach(function (img) { img.style.cursor = 'pointer'; });
+    var mo = new MutationObserver(function () {
+      description.querySelectorAll('img:not([data-click-buy])').forEach(function (img) {
+        img.setAttribute('data-click-buy', '1');
+        img.style.cursor = 'pointer';
+      });
+    });
+    mo.observe(description, { childList: true, subtree: true });
+  }
+
   function setupBiohackAnnouncement(productInfo) {
     if (!productInfo) return;
     if (productInfo.getAttribute('data-product-handle') !== 'biohack-mind-d-p') return;
@@ -539,6 +626,8 @@
     setupBiohackAnnouncement(productInfo);
     scheduleVideoInsert(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
+    setupSabanasImageClickToBuy(productInfo);
+    setupSabanasGoldenButton(productInfo);
     insertSabanasTextBlock(productInfo);
     insertSabanasTextBlock4(productInfo);
     stripProductInfoToDescriptionAndForm(productInfo);
@@ -560,6 +649,8 @@
     setupBiohackAnnouncement(productInfo);
     scheduleVideoInsert(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
+    setupSabanasImageClickToBuy(productInfo);
+    setupSabanasGoldenButton(productInfo);
     insertSabanasTextBlock(productInfo);
     insertSabanasTextBlock4(productInfo);
     stripProductInfoToDescriptionAndForm(productInfo);

@@ -4387,6 +4387,35 @@ body.sabanas-dark-hero product-info[id^='MainProduct-'] .product-form {
   background: #0d0d0d !important;
 }
 
+/* Golden buy button for sabanas */
+body.sabanas-dark-hero product-info[id^='MainProduct-'] .product-form__buttons button,
+body.sabanas-dark-hero product-info[id^='MainProduct-'] .product-form__buttons a,
+body.sabanas-dark-hero product-info[id^='MainProduct-'] .product-form__submit,
+body.sabanas-dark-hero product-info[id^='MainProduct-'] .shopify-payment-button__button,
+body.sabanas-dark-hero product-info[id^='MainProduct-'] .shopify-payment-button__button--unbranded,
+body.sabanas-dark-hero product-info[id^='MainProduct-'] button[type='submit'],
+body.sabanas-dark-hero product-info[id^='MainProduct-'] .btn--primary {
+  background: linear-gradient(135deg, #F5A800, #e69000) !important;
+  background-color: #F5A800 !important;
+  border-color: #e69000 !important;
+  color: #0d0d0d !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 20px rgba(245, 168, 0, 0.45) !important;
+}
+
+body.sabanas-dark-hero product-info[id^='MainProduct-'] .product-form__buttons button:hover,
+body.sabanas-dark-hero product-info[id^='MainProduct-'] .shopify-payment-button__button:hover {
+  background: linear-gradient(135deg, #ffc107, #F5A800) !important;
+  background-color: #ffc107 !important;
+  box-shadow: 0 6px 28px rgba(245, 168, 0, 0.6) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Pointer cursor on all product images for sabanas */
+body.sabanas-dark-hero product-info[id^='MainProduct-'] .product__description img {
+  cursor: pointer !important;
+}
+
 /* General text */
 body.sabanas-dark-hero product-info[id^='MainProduct-'] .product__info-container p,
 body.sabanas-dark-hero product-info[id^='MainProduct-'] .product__info-container span:not([class*="price"]) {
