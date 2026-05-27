@@ -630,7 +630,15 @@
     const images = description.querySelectorAll('img');
     if (!images.length) return;
 
-    const index = images.length >= 4 ? 3 : images.length - 1;
+    // For cojin-sillon-para-sentar-al-bebe-2026, place after the 5th image (index 4)
+    // For others, place after the 4th image (index 3)
+    let targetIndex = 3;
+    const handle = productInfo.getAttribute('data-product-handle');
+    if (handle === 'cojin-sillon-para-sentar-al-bebe-2026') {
+      targetIndex = 4;
+    }
+
+    const index = images.length >= (targetIndex + 1) ? targetIndex : images.length - 1;
     const targetImage = images[index];
     const anchor = targetImage.closest('p, div, figure') || targetImage;
 

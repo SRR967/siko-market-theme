@@ -3908,6 +3908,12 @@ product-info[id^='MainProduct-'] .product__description.rte .video-container-grid
   }
 }
 
+/* Cojin product: white background for video grid columns */
+product-info[data-product-handle="cojin-sillon-para-sentar-al-bebe-2026"] .product__description .video-container-grid,
+product-info[data-product-handle="cojin-sillon-para-sentar-al-bebe-2026"] .product__description.rte .video-container-grid {
+  background: #ffffff !important;
+}
+
 /* Sabanas text block – overrides for the general description reset rules */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap');
 
