@@ -1,7 +1,7 @@
 (function () {
   // Early: add body class synchronously so CSS applies before paint
   (function () {
-    var pi = document.querySelector("product-info[data-product-handle='sabanas-100-garantizadas-1']");
+    var pi = document.querySelector("product-info[data-product-handle='sabanas-100-garantizadas-1'], product-info[data-product-handle='sabanas-100-garantizadas']");
     if (pi) document.body.classList.add('sabanas-dark-hero');
   })();
 
@@ -100,7 +100,8 @@
 
   function setupSabanasDarkHero(productInfo) {
     if (!productInfo) return;
-    if (productInfo.getAttribute('data-product-handle') !== 'sabanas-100-garantizadas-1') return;
+    var handle = productInfo.getAttribute('data-product-handle');
+    if (handle !== 'sabanas-100-garantizadas-1' && handle !== 'sabanas-100-garantizadas') return;
     document.body.classList.add('sabanas-dark-hero');
   }
 
@@ -120,19 +121,36 @@
   }
 
   function applyGoldStyleToBtn(btn) {
-    btn.style.setProperty('background', 'linear-gradient(135deg,#F5A800,#d48000)', 'important');
-    btn.style.setProperty('background-color', '#F5A800', 'important');
-    btn.style.setProperty('color', '#0d0d0d', 'important');
+    btn.style.setProperty('background', 'linear-gradient(135deg, #FFE359 0%, #C89B00 100%)', 'important');
+    btn.style.setProperty('background-color', '#C89B00', 'important');
+    btn.style.setProperty('color', '#000000', 'important');
     btn.style.setProperty('font-weight', '800', 'important');
-    btn.style.setProperty('border-color', '#d48000', 'important');
+    btn.style.setProperty('border', 'none', 'important');
     btn.style.setProperty('border-radius', '8px', 'important');
-    btn.style.setProperty('box-shadow', '0 4px 20px rgba(245,168,0,0.5)', 'important');
+    btn.style.setProperty('box-shadow', '0 4px 15px rgba(200, 155, 0, 0.4)', 'important');
+    btn.style.setProperty('transition', 'all 0.3s ease', 'important');
+
+    if (!btn.dataset.sabanasGoldHover) {
+      btn.dataset.sabanasGoldHover = 'true';
+      btn.addEventListener('mouseenter', function() {
+        btn.style.setProperty('background', 'linear-gradient(135deg, #FFF099 0%, #E6B000 100%)', 'important');
+        btn.style.setProperty('box-shadow', '0 6px 20px rgba(200, 155, 0, 0.6)', 'important');
+        btn.style.setProperty('transform', 'translateY(-2px)', 'important');
+      });
+      btn.addEventListener('mouseleave', function() {
+        btn.style.setProperty('background', 'linear-gradient(135deg, #FFE359 0%, #C89B00 100%)', 'important');
+        btn.style.setProperty('box-shadow', '0 4px 15px rgba(200, 155, 0, 0.4)', 'important');
+        btn.style.setProperty('transform', 'none', 'important');
+      });
+    }
+
     btn.dataset.sabanasGold = '1';
   }
 
   function setupSabanasGoldenButton(productInfo) {
     if (!productInfo) return;
-    if (productInfo.getAttribute('data-product-handle') !== 'sabanas-100-garantizadas-1') return;
+    var handle = productInfo.getAttribute('data-product-handle');
+    if (handle !== 'sabanas-100-garantizadas-1' && handle !== 'sabanas-100-garantizadas') return;
 
     function paintButtons() {
       var form = productInfo.querySelector('product-form') || productInfo.querySelector('.product-form');
@@ -156,39 +174,82 @@
 
   function setupSabanasImageClickToBuy(productInfo) {
     if (!productInfo) return;
-    if (productInfo.getAttribute('data-product-handle') !== 'sabanas-100-garantizadas-1') return;
+    var handle = productInfo.getAttribute('data-product-handle');
+    if (handle !== 'sabanas-100-garantizadas-1' && handle !== 'sabanas-100-garantizadas') return;
     if (productInfo.dataset.sabanasImgClickSetup === 'true') return;
     productInfo.dataset.sabanasImgClickSetup = 'true';
 
+    // 1. Description images click handling
     var description = productInfo.querySelector('.product__description');
-    if (!description) return;
+    if (description) {
+      description.addEventListener('click', function (e) {
+        var target = e.target;
+        if (target.tagName !== 'IMG') return;
 
-    // Event delegation: any image click → scroll to form → click buy button
-    description.addEventListener('click', function (e) {
-      var target = e.target;
-      if (target.tagName !== 'IMG') return;
+        var productForm = productInfo.querySelector('product-form') || productInfo.querySelector('.product-form');
+        if (productForm) {
+          productForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
 
-      var productForm = productInfo.querySelector('product-form') || productInfo.querySelector('.product-form');
-      if (productForm) {
-        productForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-
-      // After scroll animation, find and click the visible buy button
-      window.setTimeout(function () {
-        var btn = findSabanasVisibleBuyButton(productInfo);
-        if (btn) btn.click();
-      }, 600);
-    });
-
-    // Pointer cursor on existing + future images
-    description.querySelectorAll('img').forEach(function (img) { img.style.cursor = 'pointer'; });
-    var mo = new MutationObserver(function () {
-      description.querySelectorAll('img:not([data-click-buy])').forEach(function (img) {
-        img.setAttribute('data-click-buy', '1');
-        img.style.cursor = 'pointer';
+        window.setTimeout(function () {
+          var btn = findSabanasVisibleBuyButton(productInfo);
+          if (btn) btn.click();
+        }, 600);
       });
-    });
-    mo.observe(description, { childList: true, subtree: true });
+
+      description.querySelectorAll('img').forEach(function (img) { img.style.cursor = 'pointer'; });
+      var moDesc = new MutationObserver(function () {
+        description.querySelectorAll('img:not([data-click-buy])').forEach(function (img) {
+          img.setAttribute('data-click-buy', '1');
+          img.style.cursor = 'pointer';
+        });
+      });
+      moDesc.observe(description, { childList: true, subtree: true });
+    }
+
+    // 2. Main gallery images capture-phase click redirection
+    productInfo.addEventListener('click', function (e) {
+      var mediaWrapper = productInfo.querySelector('.product__media-wrapper') || document.querySelector('media-gallery');
+      if (!mediaWrapper) return;
+
+      if (mediaWrapper.contains(e.target)) {
+        // Skip thumbnails
+        var thumbnails = mediaWrapper.querySelector('[id^="GalleryThumbnails"]');
+        if (thumbnails && thumbnails.contains(e.target)) {
+          return;
+        }
+
+        // Target images or buttons inside the main gallery viewer
+        var viewer = mediaWrapper.querySelector('[id^="GalleryViewer"]');
+        if (viewer && viewer.contains(e.target)) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+
+          var productForm = productInfo.querySelector('product-form') || productInfo.querySelector('.product-form');
+          if (productForm) {
+            productForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+
+          window.setTimeout(function () {
+            var buyBtn = findSabanasVisibleBuyButton(productInfo);
+            if (buyBtn) buyBtn.click();
+          }, 600);
+        }
+      }
+    }, true); // Capture phase to intercept and bypass modal-opener/zoom click listeners!
+
+    // Style pointer cursor for gallery viewer elements
+    function setGalleryCursor() {
+      var mediaWrapper = productInfo.querySelector('.product__media-wrapper') || document.querySelector('media-gallery');
+      if (!mediaWrapper) return;
+      var viewer = mediaWrapper.querySelector('[id^="GalleryViewer"]');
+      if (!viewer) return;
+      viewer.querySelectorAll('img, modal-opener, button.product__media-toggle').forEach(function (el) {
+        el.style.cursor = 'pointer';
+      });
+    }
+    [500, 1500, 3000].forEach(function (t) { window.setTimeout(setGalleryCursor, t); });
   }
 
   function setupBiohackAnnouncement(productInfo) {
@@ -236,7 +297,8 @@
   function insertSabanasTextBlock(productInfo) {
     if (!productInfo) return;
     if (productInfo.dataset.sabanasTextInserted === 'true') return;
-    if (productInfo.getAttribute('data-product-handle') !== 'sabanas-100-garantizadas-1') return;
+    var handle = productInfo.getAttribute('data-product-handle');
+    if (handle !== 'sabanas-100-garantizadas-1' && handle !== 'sabanas-100-garantizadas') return;
 
     const description = productInfo.querySelector('.product__description');
     if (!description) return;
@@ -311,7 +373,8 @@
   function insertSabanasTextBlock4(productInfo) {
     if (!productInfo) return;
     if (productInfo.dataset.sabanasText4Inserted === 'true') return;
-    if (productInfo.getAttribute('data-product-handle') !== 'sabanas-100-garantizadas-1') return;
+    var handle = productInfo.getAttribute('data-product-handle');
+    if (handle !== 'sabanas-100-garantizadas-1' && handle !== 'sabanas-100-garantizadas') return;
 
     const description = productInfo.querySelector('.product__description');
     if (!description) return;
@@ -418,7 +481,7 @@
         : fifthImage;
 
       var promoImg = document.createElement('img');
-      promoImg.src = 'https://cdn.shopify.com/s/files/1/0810/9401/7282/files/IMAGEN_DE_COLOR_NEGRO_Pon_202605181705.jpg?v=1779155113';
+      promoImg.src = 'https://cdn.shopify.com/s/files/1/0810/9401/7282/files/IMAGEN_DE_COLOR_NEGRO_Pon_202605181705.jpg?v=1779336746';
       promoImg.alt = 'S\u00e1banas Premium';
       promoImg.className = 'sabanas-promo-img';
       insertAfterFifth.insertAdjacentElement('afterend', promoImg);

@@ -47,7 +47,7 @@
     }
   {%- endstyle -%}
 
-  {%- if product.handle == 'sabanas-100-garantizadas-1' -%}
+  {%- if product.handle == 'sabanas-100-garantizadas-1' or product.handle == 'sabanas-100-garantizadas' -%}
     <style>
       product-info#MainProduct-{{ section.id }},
       product-info#MainProduct-{{ section.id }}.gradient {
@@ -73,6 +73,26 @@
       product-info#MainProduct-{{ section.id }} .product__info-container,
       product-info#MainProduct-{{ section.id }} .product__media-wrapper {
         background: #0d0d0d !important;
+      }
+      product-info#MainProduct-{{ section.id }} .product-form__submit,
+      product-info#MainProduct-{{ section.id }} .shopify-payment-button__button,
+      product-info#MainProduct-{{ section.id }} .shopify-payment-button__button--unbranded,
+      product-info#MainProduct-{{ section.id }} .shopify-payment-button__button--hidden {
+        background: linear-gradient(135deg, #FFE359 0%, #C89B00 100%) !important;
+        background-color: #C89B00 !important;
+        color: #000000 !important;
+        font-weight: 800 !important;
+        border: none !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 15px rgba(200, 155, 0, 0.4) !important;
+        transition: all 0.3s ease !important;
+      }
+      product-info#MainProduct-{{ section.id }} .product-form__submit:hover,
+      product-info#MainProduct-{{ section.id }} .shopify-payment-button__button:hover,
+      product-info#MainProduct-{{ section.id }} .shopify-payment-button__button--unbranded:hover {
+        background: linear-gradient(135deg, #FFF099 0%, #E6B000 100%) !important;
+        box-shadow: 0 6px 20px rgba(200, 155, 0, 0.6) !important;
+        transform: translateY(-2px) !important;
       }
     </style>
   {%- endif -%}
