@@ -66,6 +66,7 @@
         "description",
         "share"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -100,10 +101,54 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "product_landing_images_aWDhYE": {
+      "type": "product-landing-images",
+      "blocks": {
+        "image_7eJR7b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/hero.webp",
+            "alt_text": "",
+            "link_active": false,
+            "link_url": "",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_PcAedA": {
+          "type": "image",
+          "settings": {
+            "alt_text": "",
+            "link_active": false,
+            "link_url": "",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_Ckp9Qr": {
+          "type": "image",
+          "settings": {
+            "alt_text": "",
+            "link_active": false,
+            "link_url": "",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_7eJR7b",
+        "image_PcAedA",
+        "image_Ckp9Qr"
+      ],
+      "name": "Landing de imágenes",
+      "settings": {}
     }
   },
   "order": [
     "main",
+    "product_landing_images_aWDhYE",
     "related-products"
   ]
 }
