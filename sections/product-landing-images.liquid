@@ -1,0 +1,319 @@
+{%- comment -%}
+  Section: product-landing-images
+  Descripción: Landing de imágenes profesional tipo DTC/dropshipping.
+  Compatible con Shopify OS 2.0 / Dawn.
+  Soporta bloques administrables desde el personalizador del tema.
+{%- endcomment -%}
+
+{%- if section.blocks.size > 0 -%}
+  <div
+    id="product-landing-images-{{ section.id }}"
+    class="product-landing-images"
+    aria-label="{{ 'sections.product_landing_images.aria_label' | t: default: 'Imágenes del producto' }}"
+  >
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'image' -%}
+        {%- assign image       = block.settings.image -%}
+        {%- assign link_url    = block.settings.link_url -%}
+        {%- assign link_active = block.settings.link_active -%}
+        {%- assign alt_text    = block.settings.alt_text -%}
+        {%- assign pad_top     = block.settings.padding_top -%}
+        {%- assign pad_bottom  = block.settings.padding_bottom -%}
+        {%- assign is_first    = forloop.first -%}
+
+        {%- if image != blank -%}
+          <div
+            class="pli-block pli-animate{% if is_first %} pli-no-animate{% endif %}"
+            style="padding-top: {{ pad_top }}px; padding-bottom: {{ pad_bottom }}px;"
+            {{ block.shopify_attributes }}
+          >
+            {%- if link_active and link_url != blank -%}
+              <a
+                href="{{ link_url }}"
+                class="pli-link"
+                aria-label="{{ alt_text | default: image.alt | default: product.title }}"
+              >
+            {%- endif -%}
+
+            {%- if is_first -%}
+              {{-
+                image
+                | image_url: width: 1500
+                | image_tag:
+                  loading: 'eager',
+                  fetchpriority: 'high',
+                  widths: '375, 550, 750, 1100, 1500',
+                  sizes: '100vw',
+                  class: 'pli-image',
+                  alt: alt_text | default: image.alt | default: product.title
+              -}}
+            {%- else -%}
+              {{-
+                image
+                | image_url: width: 1500
+                | image_tag:
+                  loading: 'lazy',
+                  decoding: 'async',
+                  widths: '375, 550, 750, 1100, 1500',
+                  sizes: '100vw',
+                  class: 'pli-image pli-lazy',
+                  alt: alt_text | default: image.alt | default: product.title
+              -}}
+            {%- endif -%}
+
+            {%- if link_active and link_url != blank -%}
+              </a>
+            {%- endif -%}
+          </div>
+        {%- else -%}
+          {%- comment -%} Placeholder visible solo en el editor {%- endcomment -%}
+          <div
+            class="pli-block pli-placeholder"
+            style="padding-top: {{ pad_top }}px; padding-bottom: {{ pad_bottom }}px;"
+            {{ block.shopify_attributes }}
+          >
+            <div class="pli-placeholder-inner">
+              {{ 'image' | placeholder_svg_tag: 'pli-placeholder-svg' }}
+              <p>{{ 'sections.product_landing_images.placeholder' | t: default: 'Selecciona una imagen en el editor' }}</p>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <style>
+    /* ─── Reset base ──────────────────────────────────────────── */
+    #product-landing-images-{{ section.id }} {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    /* ─── Bloque contenedor ───────────────────────────────────── */
+    .pli-block {
+      width: 100%;
+      display: block;
+      margin: 0;
+    }
+
+    /* ─── Imagen ──────────────────────────────────────────────── */
+    .pli-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    /* ─── Enlace ──────────────────────────────────────────────── */
+    .pli-link {
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .pli-link:focus-visible {
+      outline: 3px solid #005fcc;
+      outline-offset: 2px;
+    }
+
+    /* ─── Animación: estado inicial (solo bloques animados) ───── */
+    .pli-animate:not(.pli-no-animate):not(.pli-visible) {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    /* ─── Animación: estado visible ───────────────────────────── */
+    .pli-animate.pli-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    /* ─── Primer bloque: siempre visible sin transición ──────── */
+    .pli-no-animate {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── Placeholder (editor) ────────────────────────────────── */
+    .pli-placeholder {
+      background: #f4f4f4;
+    }
+    .pli-placeholder-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+      gap: 12px;
+      color: #666;
+      font-size: 14px;
+      text-align: center;
+    }
+    .pli-placeholder-svg {
+      width: 80px;
+      height: 80px;
+      fill: #ccc;
+    }
+
+    /* ─── Desktop: limitar ancho máximo si la sección lo permite */
+    @media (min-width: 990px) {
+      #product-landing-images-{{ section.id }} {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var SECTION_ID = 'product-landing-images-{{ section.id }}';
+      var ANIMATE_CLASS = 'pli-animate';
+      var VISIBLE_CLASS = 'pli-visible';
+      var SKIP_CLASS = 'pli-no-animate';
+
+      function initObserver() {
+        var section = document.getElementById(SECTION_ID);
+        if (!section) return;
+
+        var targets = section.querySelectorAll('.' + ANIMATE_CLASS + ':not(.' + SKIP_CLASS + ')');
+        if (!targets.length) return;
+
+        if (!('IntersectionObserver' in window)) {
+          /* Fallback: mostrar todo si el navegador no soporta IO */
+          targets.forEach(function (el) {
+            el.classList.add(VISIBLE_CLASS);
+          });
+          return;
+        }
+
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add(VISIBLE_CLASS);
+                /* Desconectar para que la animación vuelva al salir */
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.05,
+            rootMargin: '0px 0px -30px 0px'
+          }
+        );
+
+        /* Re-observar cuando el elemento sale del viewport para repetir animación */
+        var reObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) {
+                entry.target.classList.remove(VISIBLE_CLASS);
+                /* Volver a observar con el observer principal */
+                observer.observe(entry.target);
+              }
+            });
+          },
+          { threshold: 0 }
+        );
+
+        targets.forEach(function (el) {
+          observer.observe(el);
+          reObserver.observe(el);
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initObserver);
+      } else {
+        initObserver();
+      }
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Landing de imágenes",
+  "tag": "div",
+  "class": "section-product-landing-images",
+  "limit": 1,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Imagen",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Texto alternativo (SEO)",
+          "info": "Describe la imagen para motores de búsqueda y accesibilidad."
+        },
+        {
+          "type": "header",
+          "content": "Enlace"
+        },
+        {
+          "type": "checkbox",
+          "id": "link_active",
+          "label": "Activar enlace",
+          "default": false
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "URL de destino"
+        },
+        {
+          "type": "header",
+          "content": "Espaciado"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Espaciado superior",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Espaciado inferior",
+          "default": 0
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing de imágenes",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}
