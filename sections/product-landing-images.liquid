@@ -1,7 +1,9 @@
 {%- comment -%}
   Section: product-landing-images
-  Descripción: Constructor de landing para dropshipping DTC.
-  Bloques: imagen, CTA (Releasit click), espaciador, HTML personalizado.
+  Bloques disponibles:
+    • image        — Imagen 100% ancho, lazy loading, animación IntersectionObserver
+    • cta_releasit — Botón idéntico al de la descripción → dispara .click() en #_rsi-buy-now-button
+    • video_grid   — Grid 2 columnas de vídeo igual al que genera dtc-sales-page.js
   Compatible con Shopify OS 2.0 / Dawn + Releasit COD Form.
 {%- endcomment -%}
 
@@ -16,123 +18,107 @@
 
     {%- for block in section.blocks -%}
 
-      {%- comment -%}══════════════════════════════════════
-        BLOQUE 1 — IMAGEN
-      ══════════════════════════════════════{%- endcomment -%}
+      {%- comment -%}══════════════════════
+        BLOQUE: IMAGEN
+      ══════════════════════{%- endcomment -%}
       {%- if block.type == 'image' -%}
-        {%- assign img       = block.settings.image -%}
-        {%- assign alt_text  = block.settings.alt_text -%}
-        {%- assign pad_top   = block.settings.padding_top -%}
-        {%- assign pad_bot   = block.settings.padding_bottom -%}
-        {%- assign action    = block.settings.click_action -%}
-        {%- assign is_first  = forloop.first -%}
+        {%- assign img      = block.settings.image -%}
+        {%- assign alt_text = block.settings.alt_text -%}
+        {%- assign pad_top  = block.settings.padding_top -%}
+        {%- assign pad_bot  = block.settings.padding_bottom -%}
 
         <div
-          class="pli-block pli-block--image pli-animate{% if is_first %} pli-no-animate{% endif %}"
+          class="pli-block pli-block--image pli-animate"
           style="padding-top:{{ pad_top }}px;padding-bottom:{{ pad_bot }}px;"
           {{ block.shopify_attributes }}
         >
-          {%- if action == 'open_releasit' -%}
-            <button
-              type="button"
-              class="pli-img-btn"
-              aria-label="{{ alt_text | default: img.alt | default: 'Abrir formulario de compra' }}"
-              data-pli-action="open_releasit"
-            >
-          {%- endif -%}
-
           {%- if img != blank -%}
-            {%- if is_first -%}
-              {{- img | image_url: width: 1500 | image_tag:
-                  loading: 'eager',
-                  fetchpriority: 'high',
-                  widths: '375, 550, 750, 1100, 1500',
-                  sizes: '100vw',
-                  class: 'pli-image',
-                  alt: alt_text | default: img.alt | default: product.title
-              -}}
-            {%- else -%}
-              {{- img | image_url: width: 1500 | image_tag:
-                  loading: 'lazy',
-                  decoding: 'async',
-                  widths: '375, 550, 750, 1100, 1500',
-                  sizes: '100vw',
-                  class: 'pli-image pli-lazy',
-                  alt: alt_text | default: img.alt | default: product.title
-              -}}
-            {%- endif -%}
+            {{- img | image_url: width: 1500 | image_tag:
+                loading: 'lazy',
+                decoding: 'async',
+                widths: '375, 550, 750, 1100, 1500',
+                sizes: '100vw',
+                class: 'pli-image',
+                alt: alt_text | default: img.alt | default: product.title
+            -}}
           {%- else -%}
             <div class="pli-placeholder-inner">
               {{ 'image' | placeholder_svg_tag: 'pli-placeholder-svg' }}
               <p>Selecciona una imagen en el editor</p>
             </div>
           {%- endif -%}
-
-          {%- if action == 'open_releasit' -%}
-            </button>
-          {%- endif -%}
         </div>
 
-      {%- comment -%}══════════════════════════════════════
-        BLOQUE 2 — CTA (scroll a Releasit)
-      ══════════════════════════════════════{%- endcomment -%}
-      {%- elsif block.type == 'cta' -%}
-        {%- assign cta_text     = block.settings.cta_text | default: 'Pedir contraentrega' -%}
-        {%- assign cta_bg       = block.settings.bg_color -%}
-        {%- assign cta_color    = block.settings.text_color -%}
-        {%- assign cta_radius   = block.settings.border_radius -%}
-        {%- assign cta_size     = block.settings.font_size -%}
-        {%- assign cta_pad_top  = block.settings.padding_top -%}
-        {%- assign cta_pad_bot  = block.settings.padding_bottom -%}
+      {%- comment -%}══════════════════════
+        BLOQUE: BOTÓN RELEASIT
+      ══════════════════════{%- endcomment -%}
+      {%- elsif block.type == 'cta_releasit' -%}
+        {%- assign btn_text    = block.settings.btn_text | default: 'PEDIR CONTRAENTREGA' -%}
+        {%- assign btn_bg      = block.settings.bg_color -%}
+        {%- assign btn_color   = block.settings.text_color -%}
+        {%- assign btn_pad_top = block.settings.padding_top -%}
+        {%- assign btn_pad_bot = block.settings.padding_bottom -%}
 
         <div
           class="pli-block pli-block--cta pli-animate"
-          style="padding-top:{{ cta_pad_top }}px;padding-bottom:{{ cta_pad_bot }}px;"
+          style="padding-top:{{ btn_pad_top }}px;padding-bottom:{{ btn_pad_bot }}px;background-color:{{ btn_bg }};"
           {{ block.shopify_attributes }}
         >
           <button
             type="button"
-            class="pli-cta-btn"
+            class="pli-rsi-btn"
+            style="color:{{ btn_color }};"
             data-pli-action="open_releasit"
-            style="
-              background-color:{{ cta_bg }};
-              color:{{ cta_color }};
-              border-radius:{{ cta_radius }}px;
-              font-size:{{ cta_size }}px;
-            "
+            aria-label="{{ btn_text }}"
           >
-            {{ cta_text }}
+            {{ btn_text }}
           </button>
         </div>
 
-      {%- comment -%}══════════════════════════════════════
-        BLOQUE 3 — ESPACIADOR
-      ══════════════════════════════════════{%- endcomment -%}
-      {%- elsif block.type == 'spacer' -%}
-        {%- assign sp_mobile  = block.settings.height_mobile -%}
-        {%- assign sp_desktop = block.settings.height_desktop -%}
+      {%- comment -%}══════════════════════
+        BLOQUE: GRID DE VIDEOS (2 columnas)
+      ══════════════════════{%- endcomment -%}
+      {%- elsif block.type == 'video_grid' -%}
+        {%- assign video_a     = block.settings.video_url_a -%}
+        {%- assign video_b     = block.settings.video_url_b -%}
+        {%- assign grid_bg     = block.settings.bg_color -%}
+        {%- assign vg_pad_top  = block.settings.padding_top -%}
+        {%- assign vg_pad_bot  = block.settings.padding_bottom -%}
 
-        <div
-          class="pli-block pli-block--spacer"
-          style="--pli-sp-mobile:{{ sp_mobile }}px;--pli-sp-desktop:{{ sp_desktop }}px;"
-          aria-hidden="true"
-          {{ block.shopify_attributes }}
-        ></div>
-
-      {%- comment -%}══════════════════════════════════════
-        BLOQUE 4 — HTML PERSONALIZADO
-      ══════════════════════════════════════{%- endcomment -%}
-      {%- elsif block.type == 'custom_html' -%}
-        {%- assign html_pad_top = block.settings.padding_top -%}
-        {%- assign html_pad_bot = block.settings.padding_bottom -%}
-
-        <div
-          class="pli-block pli-block--html"
-          style="padding-top:{{ html_pad_top }}px;padding-bottom:{{ html_pad_bot }}px;"
-          {{ block.shopify_attributes }}
-        >
-          {{ block.settings.html_content }}
-        </div>
+        {%- if video_a != blank or video_b != blank -%}
+          <div
+            class="pli-block pli-block--video-grid pli-animate"
+            style="padding-top:{{ vg_pad_top }}px;padding-bottom:{{ vg_pad_bot }}px;background-color:{{ grid_bg }};"
+            {{ block.shopify_attributes }}
+          >
+            {%- if video_a != blank -%}
+              <div class="pli-video-item">
+                <video autoplay muted loop playsinline preload="metadata">
+                  <source src="{{ video_a }}" type="video/mp4">
+                </video>
+              </div>
+            {%- endif -%}
+            {%- if video_b != blank -%}
+              <div class="pli-video-item">
+                <video autoplay muted loop playsinline preload="metadata">
+                  <source src="{{ video_b }}" type="video/mp4">
+                </video>
+              </div>
+            {%- endif -%}
+          </div>
+        {%- else -%}
+          {%- comment -%} Placeholder visible solo en el editor {%- endcomment -%}
+          <div
+            class="pli-block pli-block--video-grid pli-video-placeholder"
+            style="padding-top:{{ vg_pad_top }}px;padding-bottom:{{ vg_pad_bot }}px;"
+            {{ block.shopify_attributes }}
+          >
+            <div class="pli-placeholder-inner">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="60" height="60" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polygon points="10,8 16,12 10,16"/></svg>
+              <p>Agrega las URLs de los videos en el editor</p>
+            </div>
+          </div>
+        {%- endif -%}
 
       {%- endif -%}
     {%- endfor -%}
@@ -165,7 +151,7 @@
       box-sizing: border-box;
     }
 
-    /* ── Imagen ────────────────────────────────────────────────── */
+    /* ══ IMAGEN ════════════════════════════════════════════════ */
     .pli-image {
       display: block;
       width: 100%;
@@ -177,86 +163,78 @@
       border: none;
     }
 
-    /* ── Botón-imagen (imagen clickeable sin estilos de botón) ─── */
-    .pli-img-btn {
-      display: block;
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      background: none;
-      border: none;
-      cursor: pointer;
-      line-height: 0;
-    }
-    .pli-img-btn:focus-visible {
-      outline: 3px solid #005fcc;
-      outline-offset: 2px;
-    }
-
-    /* ── CTA button ────────────────────────────────────────────── */
+    /* ══ BOTÓN RELEASIT ═══════════════════════════════════════ */
+    /*
+      Replica exactamente el .product-form__buttons del tema:
+      contenedor blanco, padding generoso, botón ancho 100%.
+    */
     .pli-block--cta {
-      display: flex;
-      justify-content: center;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-    .pli-cta-btn {
       display: block;
       width: 100%;
-      max-width: 480px;
-      padding: 16px 24px;
+    }
+    .pli-rsi-btn {
+      display: block;
+      width: 100%;
+      padding: 18px 24px;
       border: none;
       cursor: pointer;
+      font-size: 15px;
       font-weight: 700;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       line-height: 1.2;
-      transition: filter 0.2s ease, transform 0.15s ease;
+      text-align: center;
       -webkit-tap-highlight-color: transparent;
+      transition: filter 0.2s ease, transform 0.15s ease;
+      /* Tipografía idéntica a Dawn */
+      font-family: inherit;
     }
-    .pli-cta-btn:hover {
-      filter: brightness(1.08);
+    .pli-rsi-btn:hover {
+      filter: brightness(1.07);
     }
-    .pli-cta-btn:active {
-      transform: scale(0.97);
+    .pli-rsi-btn:active {
+      transform: scale(0.98);
     }
-    .pli-cta-btn:focus-visible {
+    .pli-rsi-btn:focus-visible {
       outline: 3px solid #005fcc;
       outline-offset: 2px;
     }
 
-    /* ── Espaciador ────────────────────────────────────────────── */
-    .pli-block--spacer {
-      height: var(--pli-sp-mobile, 24px);
+    /* ══ GRID DE VIDEOS ═══════════════════════════════════════ */
+    /*
+      Idéntico al .video-container-grid de base.css +
+      las sobreescrituras del cojin product handle.
+    */
+    .pli-block--video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
-    @media (min-width: 750px) {
-      .pli-block--spacer {
-        height: var(--pli-sp-desktop, 40px);
+    .pli-video-item {
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .pli-video-item video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+    @media screen and (max-width: 749px) {
+      .pli-block--video-grid {
+        gap: 8px;
+        padding-left: 8px;
+        padding-right: 8px;
       }
     }
 
-    /* ── HTML personalizado ────────────────────────────────────── */
-    .pli-block--html {
-      width: 100%;
-    }
-
-    /* ── Animaciones ───────────────────────────────────────────── */
-    .pli-animate:not(.pli-no-animate):not(.pli-visible) {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    .pli-animate.pli-visible {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .pli-no-animate {
-      opacity: 1;
-      transform: none;
-    }
-
     /* ── Placeholder editor ────────────────────────────────────── */
-    .pli-block--image .pli-placeholder-inner {
+    .pli-placeholder-inner {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -264,14 +242,31 @@
       padding: 48px 24px;
       gap: 12px;
       background: #f4f4f4;
-      color: #666;
-      font-size: 14px;
+      color: #888;
+      font-size: 13px;
       text-align: center;
     }
-    .pli-placeholder-svg {
-      width: 80px;
-      height: 80px;
+    .pli-video-placeholder .pli-placeholder-inner {
+      background: #1a1a1a;
+      color: #666;
+    }
+    .pli-placeholder-svg,
+    .pli-placeholder-inner svg {
+      width: 60px;
+      height: 60px;
       fill: #ccc;
+      stroke: #ccc;
+    }
+
+    /* ── Animaciones IntersectionObserver ──────────────────────── */
+    .pli-animate:not(.pli-visible) {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .pli-animate.pli-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
   </style>
 
@@ -284,9 +279,8 @@
       var RSI_SELECTOR  = '#_rsi-buy-now-button';
       var ANIMATE_CLASS = 'pli-animate';
       var VISIBLE_CLASS = 'pli-visible';
-      var SKIP_CLASS    = 'pli-no-animate';
 
-      /* ── Abrir formulario Releasit (simula clic en el botón real) ── */
+      /* ── Clic real en el botón Releasit ──────────────────────── */
       function openReleasit() {
         var btn = document.querySelector(RSI_SELECTOR);
         if (btn) {
@@ -294,24 +288,21 @@
         }
       }
 
-      /* ── Delegación de eventos sobre la sección ──────────────── */
+      /* ── Delegación de eventos (click en cualquier bloque CTA) ── */
       function bindActions(section) {
         section.addEventListener('click', function (e) {
           var el = e.target.closest('[data-pli-action]');
           if (!el) return;
-          var action = el.getAttribute('data-pli-action');
-          if (action === 'open_releasit') {
+          if (el.getAttribute('data-pli-action') === 'open_releasit') {
             e.preventDefault();
             openReleasit();
           }
         });
       }
 
-      /* ── IntersectionObserver para animaciones ───────────────── */
+      /* ── IntersectionObserver: anima al entrar, resetea al salir */
       function initObserver(section) {
-        var targets = section.querySelectorAll(
-          '.' + ANIMATE_CLASS + ':not(.' + SKIP_CLASS + ')'
-        );
+        var targets = section.querySelectorAll('.' + ANIMATE_CLASS);
         if (!targets.length) return;
 
         if (!('IntersectionObserver' in window)) {
@@ -319,7 +310,7 @@
           return;
         }
 
-        /* Observer de entrada: muestra el elemento */
+        /* Entra en viewport → muestra */
         var inObs = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
@@ -329,7 +320,7 @@
           });
         }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
 
-        /* Observer de salida: resetea para volver a animar */
+        /* Sale del viewport → resetea para volver a animar */
         var outObs = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             if (!entry.isIntersecting) {
@@ -345,7 +336,7 @@
         });
       }
 
-      /* ── Init ────────────────────────────────────────────────── */
+      /* ── Init ─────────────────────────────────────────────────── */
       function init() {
         var section = document.getElementById(SECTION_ID);
         if (!section) return;
@@ -377,7 +368,7 @@
       "type": "checkbox",
       "id": "hide_on_desktop",
       "label": "Ocultar en escritorio",
-      "info": "Muestra la sección solo en móvil. Ideal para landings de Facebook Ads.",
+      "info": "Solo visible en móvil (< 750px). Ideal para landings de Facebook Ads.",
       "default": false
     }
   ],
@@ -395,21 +386,7 @@
           "type": "text",
           "id": "alt_text",
           "label": "Texto alternativo (SEO)",
-          "info": "Describe la imagen para accesibilidad y motores de búsqueda."
-        },
-        {
-          "type": "header",
-          "content": "Acción al hacer clic"
-        },
-        {
-          "type": "select",
-          "id": "click_action",
-          "label": "Acción al hacer clic",
-          "options": [
-            { "value": "none",           "label": "Ninguna" },
-            { "value": "open_releasit",  "label": "Abrir formulario Releasit (COD)" }
-          ],
-          "default": "none"
+          "info": "Describe la imagen para accesibilidad y buscadores."
         },
         {
           "type": "header",
@@ -438,14 +415,73 @@
       ]
     },
     {
-      "type": "cta",
-      "name": "🛒 Botón CTA",
+      "type": "cta_releasit",
+      "name": "🛒 Botón Pedir",
       "settings": [
         {
           "type": "text",
-          "id": "cta_text",
+          "id": "btn_text",
           "label": "Texto del botón",
-          "default": "¡Pedir contraentrega!"
+          "default": "PEDIR CONTRAENTREGA"
+        },
+        {
+          "type": "header",
+          "content": "Colores"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Color de fondo del contenedor",
+          "default": "#ffffff",
+          "info": "El fondo que rodea el botón (igual que el área blanca del formulario)"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Color del texto",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Espaciado"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 80,
+          "step": 4,
+          "unit": "px",
+          "label": "Espaciado superior del contenedor",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 80,
+          "step": 4,
+          "unit": "px",
+          "label": "Espaciado inferior del contenedor",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "video_grid",
+      "name": "🎥 Grid de videos",
+      "settings": [
+        {
+          "type": "text",
+          "id": "video_url_a",
+          "label": "URL video izquierda",
+          "info": "Pega la URL directa del archivo .mp4 (Shopify Files o CDN externo)"
+        },
+        {
+          "type": "text",
+          "id": "video_url_b",
+          "label": "URL video derecha",
+          "info": "Pega la URL directa del archivo .mp4 (Shopify Files o CDN externo)"
         },
         {
           "type": "header",
@@ -454,36 +490,10 @@
         {
           "type": "color",
           "id": "bg_color",
-          "label": "Color de fondo",
-          "default": "#e63946"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Color de texto",
+          "label": "Color de fondo del grid",
           "default": "#ffffff"
         },
         {
-          "type": "range",
-          "id": "border_radius",
-          "min": 0,
-          "max": 50,
-          "step": 2,
-          "unit": "px",
-          "label": "Radio de bordes",
-          "default": 8
-        },
-        {
-          "type": "range",
-          "id": "font_size",
-          "min": 12,
-          "max": 28,
-          "step": 1,
-          "unit": "px",
-          "label": "Tamaño de fuente",
-          "default": 16
-        },
-        {
           "type": "header",
           "content": "Espaciado"
         },
@@ -492,68 +502,6 @@
           "id": "padding_top",
           "min": 0,
           "max": 80,
-          "step": 4,
-          "unit": "px",
-          "label": "Espaciado superior",
-          "default": 16
-        },
-        {
-          "type": "range",
-          "id": "padding_bottom",
-          "min": 0,
-          "max": 80,
-          "step": 4,
-          "unit": "px",
-          "label": "Espaciado inferior",
-          "default": 16
-        }
-      ]
-    },
-    {
-      "type": "spacer",
-      "name": "↕ Espaciador",
-      "settings": [
-        {
-          "type": "range",
-          "id": "height_mobile",
-          "min": 4,
-          "max": 200,
-          "step": 4,
-          "unit": "px",
-          "label": "Altura en móvil",
-          "default": 24
-        },
-        {
-          "type": "range",
-          "id": "height_desktop",
-          "min": 4,
-          "max": 200,
-          "step": 4,
-          "unit": "px",
-          "label": "Altura en escritorio",
-          "default": 40
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "name": "⌨ HTML personalizado",
-      "settings": [
-        {
-          "type": "html",
-          "id": "html_content",
-          "label": "Código HTML",
-          "info": "Inserta HTML, iframes, scripts embebidos, etc."
-        },
-        {
-          "type": "header",
-          "content": "Espaciado"
-        },
-        {
-          "type": "range",
-          "id": "padding_top",
-          "min": 0,
-          "max": 100,
           "step": 4,
           "unit": "px",
           "label": "Espaciado superior",
@@ -563,7 +511,7 @@
           "type": "range",
           "id": "padding_bottom",
           "min": 0,
-          "max": 100,
+          "max": 80,
           "step": 4,
           "unit": "px",
           "label": "Espaciado inferior",
@@ -577,9 +525,11 @@
       "name": "Landing de imágenes",
       "blocks": [
         { "type": "image" },
-        { "type": "cta" },
+        { "type": "cta_releasit" },
         { "type": "image" },
-        { "type": "cta" }
+        { "type": "video_grid" },
+        { "type": "cta_releasit" },
+        { "type": "image" }
       ]
     }
   ]
