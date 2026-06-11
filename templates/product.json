@@ -9,6 +9,39 @@
  */
 {
   "sections": {
+    "product_landing_images_aWDhYE": {
+      "type": "product-landing-images",
+      "blocks": {
+        "image_7eJR7b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/hero.webp",
+            "alt_text": "",
+            "link_active": false,
+            "link_url": "",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_PcAedA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/magnific__cambia-el-precio-a-169900__12982.webp",
+            "alt_text": "",
+            "link_active": false,
+            "link_url": "",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_7eJR7b",
+        "image_PcAedA"
+      ],
+      "name": "Landing de imágenes",
+      "settings": {}
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -66,7 +99,6 @@
         "description",
         "share"
       ],
-      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -82,50 +114,6 @@
         "padding_top": 36,
         "padding_bottom": 12
       }
-    },
-    "product_landing_images_aWDhYE": {
-      "type": "product-landing-images",
-      "blocks": {
-        "image_7eJR7b": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/hero.webp",
-            "alt_text": "",
-            "link_active": false,
-            "link_url": "",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
-        "image_PcAedA": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/magnific__cambia-el-precio-a-169900__12982.webp",
-            "alt_text": "",
-            "link_active": false,
-            "link_url": "",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
-        "image_Ckp9Qr": {
-          "type": "image",
-          "settings": {
-            "alt_text": "",
-            "link_active": false,
-            "link_url": "",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_7eJR7b",
-        "image_PcAedA",
-        "image_Ckp9Qr"
-      ],
-      "name": "Landing de imágenes",
-      "settings": {}
     },
     "related-products": {
       "type": "related-products",
@@ -148,8 +136,8 @@
     }
   },
   "order": [
-    "main",
     "product_landing_images_aWDhYE",
+    "main",
     "related-products"
   ]
 }
