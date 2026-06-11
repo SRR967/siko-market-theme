@@ -157,13 +157,13 @@
         "disabled": false,
         "settings": {}
       },
-      "623570604926174164": {
-        "type": "shopify://apps//blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
-        "disabled": false,
-        "settings": {}
-      },
       "9535092338106386463": {
         "type": "shopify://apps/releasit-bundle/blocks/app-embed/019c9545-b89c-75b6-a4e1-5c7cd764ca36",
+        "disabled": true,
+        "settings": {}
+      },
+      "623570604926174164": {
+        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
         "disabled": true,
         "settings": {}
       }
