@@ -1,89 +1,147 @@
 {%- comment -%}
   Section: product-landing-images
-  Descripción: Landing de imágenes profesional tipo DTC/dropshipping.
-  Compatible con Shopify OS 2.0 / Dawn.
-  Soporta bloques administrables desde el personalizador del tema.
+  Descripción: Constructor de landing para dropshipping DTC.
+  Bloques: imagen, CTA (Releasit click), espaciador, HTML personalizado.
+  Compatible con Shopify OS 2.0 / Dawn + Releasit COD Form.
 {%- endcomment -%}
+
+{%- assign hide_desktop = section.settings.hide_on_desktop -%}
 
 {%- if section.blocks.size > 0 -%}
   <div
     id="product-landing-images-{{ section.id }}"
-    class="product-landing-images"
-    aria-label="{{ 'sections.product_landing_images.aria_label' | t: default: 'Imágenes del producto' }}"
+    class="product-landing-images{% if hide_desktop %} pli-hide-desktop{% endif %}"
+    aria-label="Landing del producto"
   >
+
     {%- for block in section.blocks -%}
+
+      {%- comment -%}══════════════════════════════════════
+        BLOQUE 1 — IMAGEN
+      ══════════════════════════════════════{%- endcomment -%}
       {%- if block.type == 'image' -%}
-        {%- assign image       = block.settings.image -%}
-        {%- assign link_url    = block.settings.link_url -%}
-        {%- assign link_active = block.settings.link_active -%}
-        {%- assign alt_text    = block.settings.alt_text -%}
-        {%- assign pad_top     = block.settings.padding_top -%}
-        {%- assign pad_bottom  = block.settings.padding_bottom -%}
-        {%- assign is_first    = forloop.first -%}
+        {%- assign img       = block.settings.image -%}
+        {%- assign alt_text  = block.settings.alt_text -%}
+        {%- assign pad_top   = block.settings.padding_top -%}
+        {%- assign pad_bot   = block.settings.padding_bottom -%}
+        {%- assign action    = block.settings.click_action -%}
+        {%- assign is_first  = forloop.first -%}
 
-        {%- if image != blank -%}
-          <div
-            class="pli-block pli-animate{% if is_first %} pli-no-animate{% endif %}"
-            style="padding-top: {{ pad_top }}px; padding-bottom: {{ pad_bottom }}px;"
-            {{ block.shopify_attributes }}
-          >
-            {%- if link_active and link_url != blank -%}
-              <a
-                href="{{ link_url }}"
-                class="pli-link"
-                aria-label="{{ alt_text | default: image.alt | default: product.title }}"
-              >
-            {%- endif -%}
+        <div
+          class="pli-block pli-block--image pli-animate{% if is_first %} pli-no-animate{% endif %}"
+          style="padding-top:{{ pad_top }}px;padding-bottom:{{ pad_bot }}px;"
+          {{ block.shopify_attributes }}
+        >
+          {%- if action == 'open_releasit' -%}
+            <button
+              type="button"
+              class="pli-img-btn"
+              aria-label="{{ alt_text | default: img.alt | default: 'Abrir formulario de compra' }}"
+              data-pli-action="open_releasit"
+            >
+          {%- endif -%}
 
+          {%- if img != blank -%}
             {%- if is_first -%}
-              {{-
-                image
-                | image_url: width: 1500
-                | image_tag:
+              {{- img | image_url: width: 1500 | image_tag:
                   loading: 'eager',
                   fetchpriority: 'high',
                   widths: '375, 550, 750, 1100, 1500',
                   sizes: '100vw',
                   class: 'pli-image',
-                  alt: alt_text | default: image.alt | default: product.title
+                  alt: alt_text | default: img.alt | default: product.title
               -}}
             {%- else -%}
-              {{-
-                image
-                | image_url: width: 1500
-                | image_tag:
+              {{- img | image_url: width: 1500 | image_tag:
                   loading: 'lazy',
                   decoding: 'async',
                   widths: '375, 550, 750, 1100, 1500',
                   sizes: '100vw',
                   class: 'pli-image pli-lazy',
-                  alt: alt_text | default: image.alt | default: product.title
+                  alt: alt_text | default: img.alt | default: product.title
               -}}
             {%- endif -%}
-
-            {%- if link_active and link_url != blank -%}
-              </a>
-            {%- endif -%}
-          </div>
-        {%- else -%}
-          {%- comment -%} Placeholder visible solo en el editor {%- endcomment -%}
-          <div
-            class="pli-block pli-placeholder"
-            style="padding-top: {{ pad_top }}px; padding-bottom: {{ pad_bottom }}px;"
-            {{ block.shopify_attributes }}
-          >
+          {%- else -%}
             <div class="pli-placeholder-inner">
               {{ 'image' | placeholder_svg_tag: 'pli-placeholder-svg' }}
-              <p>{{ 'sections.product_landing_images.placeholder' | t: default: 'Selecciona una imagen en el editor' }}</p>
+              <p>Selecciona una imagen en el editor</p>
             </div>
-          </div>
-        {%- endif -%}
+          {%- endif -%}
+
+          {%- if action == 'open_releasit' -%}
+            </button>
+          {%- endif -%}
+        </div>
+
+      {%- comment -%}══════════════════════════════════════
+        BLOQUE 2 — CTA (scroll a Releasit)
+      ══════════════════════════════════════{%- endcomment -%}
+      {%- elsif block.type == 'cta' -%}
+        {%- assign cta_text     = block.settings.cta_text | default: 'Pedir contraentrega' -%}
+        {%- assign cta_bg       = block.settings.bg_color -%}
+        {%- assign cta_color    = block.settings.text_color -%}
+        {%- assign cta_radius   = block.settings.border_radius -%}
+        {%- assign cta_size     = block.settings.font_size -%}
+        {%- assign cta_pad_top  = block.settings.padding_top -%}
+        {%- assign cta_pad_bot  = block.settings.padding_bottom -%}
+
+        <div
+          class="pli-block pli-block--cta pli-animate"
+          style="padding-top:{{ cta_pad_top }}px;padding-bottom:{{ cta_pad_bot }}px;"
+          {{ block.shopify_attributes }}
+        >
+          <button
+            type="button"
+            class="pli-cta-btn"
+            data-pli-action="open_releasit"
+            style="
+              background-color:{{ cta_bg }};
+              color:{{ cta_color }};
+              border-radius:{{ cta_radius }}px;
+              font-size:{{ cta_size }}px;
+            "
+          >
+            {{ cta_text }}
+          </button>
+        </div>
+
+      {%- comment -%}══════════════════════════════════════
+        BLOQUE 3 — ESPACIADOR
+      ══════════════════════════════════════{%- endcomment -%}
+      {%- elsif block.type == 'spacer' -%}
+        {%- assign sp_mobile  = block.settings.height_mobile -%}
+        {%- assign sp_desktop = block.settings.height_desktop -%}
+
+        <div
+          class="pli-block pli-block--spacer"
+          style="--pli-sp-mobile:{{ sp_mobile }}px;--pli-sp-desktop:{{ sp_desktop }}px;"
+          aria-hidden="true"
+          {{ block.shopify_attributes }}
+        ></div>
+
+      {%- comment -%}══════════════════════════════════════
+        BLOQUE 4 — HTML PERSONALIZADO
+      ══════════════════════════════════════{%- endcomment -%}
+      {%- elsif block.type == 'custom_html' -%}
+        {%- assign html_pad_top = block.settings.padding_top -%}
+        {%- assign html_pad_bot = block.settings.padding_bottom -%}
+
+        <div
+          class="pli-block pli-block--html"
+          style="padding-top:{{ html_pad_top }}px;padding-bottom:{{ html_pad_bot }}px;"
+          {{ block.shopify_attributes }}
+        >
+          {{ block.settings.html_content }}
+        </div>
+
       {%- endif -%}
     {%- endfor -%}
+
   </div>
 
+  {%- comment -%} ── CSS integrado ────────────────────────────────── {%- endcomment -%}
   <style>
-    /* ─── Reset base ──────────────────────────────────────────── */
+    /* ── Wrapper principal ─────────────────────────────────────── */
     #product-landing-images-{{ section.id }} {
       width: 100%;
       margin: 0;
@@ -92,14 +150,22 @@
       background: transparent;
     }
 
-    /* ─── Bloque contenedor ───────────────────────────────────── */
+    /* ── Ocultar en desktop si la opción está activa ───────────── */
+    @media (min-width: 750px) {
+      #product-landing-images-{{ section.id }}.pli-hide-desktop {
+        display: none !important;
+      }
+    }
+
+    /* ── Bloque base ───────────────────────────────────────────── */
     .pli-block {
       width: 100%;
       display: block;
       margin: 0;
+      box-sizing: border-box;
     }
 
-    /* ─── Imagen ──────────────────────────────────────────────── */
+    /* ── Imagen ────────────────────────────────────────────────── */
     .pli-image {
       display: block;
       width: 100%;
@@ -111,48 +177,93 @@
       border: none;
     }
 
-    /* ─── Enlace ──────────────────────────────────────────────── */
-    .pli-link {
+    /* ── Botón-imagen (imagen clickeable sin estilos de botón) ─── */
+    .pli-img-btn {
       display: block;
       width: 100%;
+      padding: 0;
+      margin: 0;
+      background: none;
+      border: none;
       cursor: pointer;
-      text-decoration: none;
+      line-height: 0;
     }
-    .pli-link:focus-visible {
+    .pli-img-btn:focus-visible {
       outline: 3px solid #005fcc;
       outline-offset: 2px;
     }
 
-    /* ─── Animación: estado inicial (solo bloques animados) ───── */
+    /* ── CTA button ────────────────────────────────────────────── */
+    .pli-block--cta {
+      display: flex;
+      justify-content: center;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .pli-cta-btn {
+      display: block;
+      width: 100%;
+      max-width: 480px;
+      padding: 16px 24px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      transition: filter 0.2s ease, transform 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pli-cta-btn:hover {
+      filter: brightness(1.08);
+    }
+    .pli-cta-btn:active {
+      transform: scale(0.97);
+    }
+    .pli-cta-btn:focus-visible {
+      outline: 3px solid #005fcc;
+      outline-offset: 2px;
+    }
+
+    /* ── Espaciador ────────────────────────────────────────────── */
+    .pli-block--spacer {
+      height: var(--pli-sp-mobile, 24px);
+    }
+    @media (min-width: 750px) {
+      .pli-block--spacer {
+        height: var(--pli-sp-desktop, 40px);
+      }
+    }
+
+    /* ── HTML personalizado ────────────────────────────────────── */
+    .pli-block--html {
+      width: 100%;
+    }
+
+    /* ── Animaciones ───────────────────────────────────────────── */
     .pli-animate:not(.pli-no-animate):not(.pli-visible) {
       opacity: 0;
       transform: translateY(30px);
     }
-
-    /* ─── Animación: estado visible ───────────────────────────── */
     .pli-animate.pli-visible {
       opacity: 1;
       transform: translateY(0);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
-
-    /* ─── Primer bloque: siempre visible sin transición ──────── */
     .pli-no-animate {
       opacity: 1;
       transform: none;
     }
 
-    /* ─── Placeholder (editor) ────────────────────────────────── */
-    .pli-placeholder {
-      background: #f4f4f4;
-    }
-    .pli-placeholder-inner {
+    /* ── Placeholder editor ────────────────────────────────────── */
+    .pli-block--image .pli-placeholder-inner {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 48px 24px;
       gap: 12px;
+      background: #f4f4f4;
       color: #666;
       font-size: 14px;
       text-align: center;
@@ -162,79 +273,90 @@
       height: 80px;
       fill: #ccc;
     }
-
-    /* ─── Desktop: limitar ancho máximo si la sección lo permite */
-    @media (min-width: 990px) {
-      #product-landing-images-{{ section.id }} {
-        width: 100%;
-      }
-    }
   </style>
 
+  {%- comment -%} ── JavaScript mínimo ────────────────────────────── {%- endcomment -%}
   <script>
     (function () {
       'use strict';
 
-      var SECTION_ID = 'product-landing-images-{{ section.id }}';
+      var SECTION_ID    = 'product-landing-images-{{ section.id }}';
+      var RSI_SELECTOR  = '#_rsi-buy-now-button';
       var ANIMATE_CLASS = 'pli-animate';
       var VISIBLE_CLASS = 'pli-visible';
-      var SKIP_CLASS = 'pli-no-animate';
+      var SKIP_CLASS    = 'pli-no-animate';
 
-      function initObserver() {
-        var section = document.getElementById(SECTION_ID);
-        if (!section) return;
-
-        var targets = section.querySelectorAll('.' + ANIMATE_CLASS + ':not(.' + SKIP_CLASS + ')');
-        if (!targets.length) return;
-
-        if (!('IntersectionObserver' in window)) {
-          /* Fallback: mostrar todo si el navegador no soporta IO */
-          targets.forEach(function (el) {
-            el.classList.add(VISIBLE_CLASS);
-          });
-          return;
+      /* ── Abrir formulario Releasit (simula clic en el botón real) ── */
+      function openReleasit() {
+        var btn = document.querySelector(RSI_SELECTOR);
+        if (btn) {
+          btn.click();
         }
+      }
 
-        var observer = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                entry.target.classList.add(VISIBLE_CLASS);
-                /* Desconectar para que la animación vuelva al salir */
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          {
-            threshold: 0.05,
-            rootMargin: '0px 0px -30px 0px'
+      /* ── Delegación de eventos sobre la sección ──────────────── */
+      function bindActions(section) {
+        section.addEventListener('click', function (e) {
+          var el = e.target.closest('[data-pli-action]');
+          if (!el) return;
+          var action = el.getAttribute('data-pli-action');
+          if (action === 'open_releasit') {
+            e.preventDefault();
+            openReleasit();
           }
-        );
-
-        /* Re-observar cuando el elemento sale del viewport para repetir animación */
-        var reObserver = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (entry) {
-              if (!entry.isIntersecting) {
-                entry.target.classList.remove(VISIBLE_CLASS);
-                /* Volver a observar con el observer principal */
-                observer.observe(entry.target);
-              }
-            });
-          },
-          { threshold: 0 }
-        );
-
-        targets.forEach(function (el) {
-          observer.observe(el);
-          reObserver.observe(el);
         });
       }
 
+      /* ── IntersectionObserver para animaciones ───────────────── */
+      function initObserver(section) {
+        var targets = section.querySelectorAll(
+          '.' + ANIMATE_CLASS + ':not(.' + SKIP_CLASS + ')'
+        );
+        if (!targets.length) return;
+
+        if (!('IntersectionObserver' in window)) {
+          targets.forEach(function (el) { el.classList.add(VISIBLE_CLASS); });
+          return;
+        }
+
+        /* Observer de entrada: muestra el elemento */
+        var inObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add(VISIBLE_CLASS);
+              inObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+
+        /* Observer de salida: resetea para volver a animar */
+        var outObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+              entry.target.classList.remove(VISIBLE_CLASS);
+              inObs.observe(entry.target);
+            }
+          });
+        }, { threshold: 0 });
+
+        targets.forEach(function (el) {
+          inObs.observe(el);
+          outObs.observe(el);
+        });
+      }
+
+      /* ── Init ────────────────────────────────────────────────── */
+      function init() {
+        var section = document.getElementById(SECTION_ID);
+        if (!section) return;
+        bindActions(section);
+        initObserver(section);
+      }
+
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initObserver);
+        document.addEventListener('DOMContentLoaded', init);
       } else {
-        initObserver();
+        init();
       }
     })();
   </script>
@@ -246,11 +368,23 @@
   "tag": "div",
   "class": "section-product-landing-images",
   "limit": 1,
-  "settings": [],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Visibilidad"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_desktop",
+      "label": "Ocultar en escritorio",
+      "info": "Muestra la sección solo en móvil. Ideal para landings de Facebook Ads.",
+      "default": false
+    }
+  ],
   "blocks": [
     {
       "type": "image",
-      "name": "Imagen",
+      "name": "🖼 Imagen",
       "settings": [
         {
           "type": "image_picker",
@@ -261,22 +395,155 @@
           "type": "text",
           "id": "alt_text",
           "label": "Texto alternativo (SEO)",
-          "info": "Describe la imagen para motores de búsqueda y accesibilidad."
+          "info": "Describe la imagen para accesibilidad y motores de búsqueda."
         },
         {
           "type": "header",
-          "content": "Enlace"
+          "content": "Acción al hacer clic"
         },
         {
-          "type": "checkbox",
-          "id": "link_active",
-          "label": "Activar enlace",
-          "default": false
+          "type": "select",
+          "id": "click_action",
+          "label": "Acción al hacer clic",
+          "options": [
+            { "value": "none",           "label": "Ninguna" },
+            { "value": "open_releasit",  "label": "Abrir formulario Releasit (COD)" }
+          ],
+          "default": "none"
         },
         {
-          "type": "url",
-          "id": "link_url",
-          "label": "URL de destino"
+          "type": "header",
+          "content": "Espaciado"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Espaciado superior",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Espaciado inferior",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "name": "🛒 Botón CTA",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "Texto del botón",
+          "default": "¡Pedir contraentrega!"
+        },
+        {
+          "type": "header",
+          "content": "Estilo"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Color de fondo",
+          "default": "#e63946"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Color de texto",
+          "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "border_radius",
+          "min": 0,
+          "max": 50,
+          "step": 2,
+          "unit": "px",
+          "label": "Radio de bordes",
+          "default": 8
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "min": 12,
+          "max": 28,
+          "step": 1,
+          "unit": "px",
+          "label": "Tamaño de fuente",
+          "default": 16
+        },
+        {
+          "type": "header",
+          "content": "Espaciado"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 80,
+          "step": 4,
+          "unit": "px",
+          "label": "Espaciado superior",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 80,
+          "step": 4,
+          "unit": "px",
+          "label": "Espaciado inferior",
+          "default": 16
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "name": "↕ Espaciador",
+      "settings": [
+        {
+          "type": "range",
+          "id": "height_mobile",
+          "min": 4,
+          "max": 200,
+          "step": 4,
+          "unit": "px",
+          "label": "Altura en móvil",
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "height_desktop",
+          "min": 4,
+          "max": 200,
+          "step": 4,
+          "unit": "px",
+          "label": "Altura en escritorio",
+          "default": 40
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "name": "⌨ HTML personalizado",
+      "settings": [
+        {
+          "type": "html",
+          "id": "html_content",
+          "label": "Código HTML",
+          "info": "Inserta HTML, iframes, scripts embebidos, etc."
         },
         {
           "type": "header",
@@ -310,8 +577,9 @@
       "name": "Landing de imágenes",
       "blocks": [
         { "type": "image" },
+        { "type": "cta" },
         { "type": "image" },
-        { "type": "image" }
+        { "type": "cta" }
       ]
     }
   ]
