@@ -17,8 +17,7 @@
           "settings": {
             "image": "shopify://shop_images/hero.webp",
             "alt_text": "",
-            "link_active": false,
-            "link_url": "",
+            "click_action": "open_releasit",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -28,8 +27,7 @@
           "settings": {
             "image": "shopify://shop_images/magnific__cambia-el-precio-a-169900__12982.webp",
             "alt_text": "",
-            "link_active": false,
-            "link_url": "",
+            "click_action": "none",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -40,7 +38,9 @@
         "image_PcAedA"
       ],
       "name": "Landing de imágenes",
-      "settings": {}
+      "settings": {
+        "hide_on_desktop": false
+      }
     },
     "main": {
       "type": "main-product",
