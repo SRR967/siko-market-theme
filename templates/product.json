@@ -22,12 +22,116 @@
             "padding_bottom": 0
           }
         },
+        "cta_releasit_tY3pcn": {
+          "type": "cta_releasit",
+          "settings": {
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
         "image_PcAedA": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/magnific__cambia-el-precio-a-169900__12982.webp",
             "alt_text": "",
-            "click_action": "none",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_DjdfHH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cojin3_f40c8584-5572-40be-8409-419858a95cc5.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_yzi9GK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/magnific__cambia-el-precio-a-169900__12983.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "video_grid_t9nX43": {
+          "type": "video_grid",
+          "settings": {
+            "video_url_a": "https://cdn.shopify.com/videos/c/o/v/2908cec4b97944fe95655917d8e69aaf.mp4",
+            "video_url_b": "https://cdn.shopify.com/videos/c/o/v/7da9ceb68d464157b3bffc9ae756e839.mp4",
+            "bg_color": "#ffffff",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_4PnaJk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cojin4.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_VczWrW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/magnific__cambia-el-precio-a-169900__12984.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_ykYQ8E": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cojin6.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_zxkd7Q": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cojin7.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "cta_releasit_FrhBWN": {
+          "type": "cta_releasit",
+          "settings": {
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_j9QNad": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cojin8.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_9MKcnP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/magnific__1-precio-del-producto-precio-antes-319800-precio-a__31665.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -35,7 +139,18 @@
       },
       "block_order": [
         "image_7eJR7b",
-        "image_PcAedA"
+        "cta_releasit_tY3pcn",
+        "image_PcAedA",
+        "image_DjdfHH",
+        "image_yzi9GK",
+        "video_grid_t9nX43",
+        "image_4PnaJk",
+        "image_VczWrW",
+        "image_ykYQ8E",
+        "image_zxkd7Q",
+        "cta_releasit_FrhBWN",
+        "image_j9QNad",
+        "image_9MKcnP"
       ],
       "name": "Landing de imágenes",
       "settings": {
@@ -99,6 +214,7 @@
         "description",
         "share"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
