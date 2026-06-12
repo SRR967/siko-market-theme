@@ -12,8 +12,45 @@
 
   const fallbackImage = popup.dataset.productImage || '';
   const productTitle = popup.dataset.productTitle || 'Producto';
-  const defaultNames = ['Eduardo...', 'Camila...', 'Daniel...', 'Valentina...', 'Laura...','David...','Juan...','Pedro...','Maria...','Ana...','Luis...','Carlos...','Jorge...','Andres...','Diego...','Jose...','Miguel...'];
-  const defaultLocations = ['Cartagena', 'Medellin', 'Bogota', 'Cali', 'Barranquilla','Armenia','Pereira','Bucaramanga','Santa Marta','Ibague','Neiva','Popayan'];
+  const defaultNames = [
+    'Eduardo...', 'Camila...', 'Daniel...', 'Valentina...', 'Laura...',
+    'David...', 'Juan...', 'Pedro...', 'María...', 'Ana...',
+    'Luis...', 'Carlos...', 'Jorge...', 'Andrés...', 'Diego...',
+    'José...', 'Miguel...', 'Santiago...', 'Sebastián...', 'Felipe...',
+    'Alejandro...', 'Nicolás...', 'Juliana...', 'Daniela...', 'Natalia...',
+    'Paola...', 'Marcela...', 'Adriana...', 'Melissa...', 'Stefanía...',
+    'Isabella...', 'Sara...', 'Sofía...', 'Manuela...', 'Catalina...',
+    'Fernanda...', 'Karen...', 'Yessica...', 'Lina...', 'Luisa...',
+    'Fabián...', 'Cristian...', 'Iván...', 'Óscar...', 'Mauricio...',
+    'Ricardo...', 'Édgar...', 'Héctor...', 'Wilmer...', 'Javier...',
+    'Esteban...', 'Mateo...', 'Samuel...', 'Tomás...', 'Simón...',
+    'Gloria...', 'Patricia...', 'Sandra...', 'Claudia...', 'Diana...'
+  ];
+  const defaultLocations = [
+    /* Grandes ciudades */
+    'Bogotá', 'Medellín', 'Cali', 'Barranquilla', 'Cartagena',
+    'Bucaramanga', 'Pereira', 'Santa Marta', 'Ibagué', 'Manizales',
+    'Neiva', 'Villavicencio', 'Armenia', 'Popayán', 'Valledupar',
+    'Montería', 'Sincelejo', 'Pasto', 'Cúcuta', 'Tunja',
+    /* Ciudades intermedias */
+    'Palmira', 'Bello', 'Barrancabermeja', 'Soledad',
+    'Itagüí', 'Soacha', 'Envigado', 'Dosquebradas',
+    /* Antioquia */
+    'Rionegro', 'Sabaneta', 'La Ceja', 'Copacabana',
+    'Girardota', 'Caldas', 'Marinilla', 'Barbosa', 'Apartadó', 'Caucasia',
+    /* Costa Caribe */
+    'Magangué', 'Lorica', 'Sahagún', 'Cereté', 'Ciénaga',
+    /* Boyacá y Santanderes */
+    'Sogamoso', 'Duitama', 'Chiquinquirá', 'San Gil', 'Socorro', 'Ocaña', 'Pamplona',
+    /* Cundinamarca */
+    'Zipaquirá', 'Facatativá', 'Mosquera', 'Funza', 'Girardot', 'Fusagasugá', 'Espinal',
+    /* Tolima y Huila */
+    'Honda', 'Líbano', 'Chaparral', 'Garzón', 'La Plata', 'Pitalito',
+    /* Nariño y Cauca */
+    'Ipiales', 'La Unión', 'Santander de Quilichao',
+    /* Valle del Cauca */
+    'Buga', 'Tuluá', 'Cartago', 'Jamundí', 'Yumbo', 'Zarzal'
+  ];
   const variantImageMap = JSON.parse(popup.dataset.variantImages || '{}');
   const sequence = defaultNames.map((name, index) => ({
     name,
@@ -25,10 +62,12 @@
   let hideTimer;
   let nextTimer;
 
-  const minDelay = 30000;
-  const maxDelay = 60000;
+  const firstMinDelay  = 10000; /* primera aparición: mínimo 10 s */
+  const firstMaxDelay  = 20000; /* primera aparición: máximo 20 s */
+  const minDelay       = 15000; /* apariciones siguientes: mínimo 15 s */
+  const maxDelay       = 30000; /* apariciones siguientes: máximo 30 s */
   const visibleDuration = 6000;
-  const fadeDuration = 500;
+  const fadeDuration   = 500;
 
   function getActiveVariantId() {
     const variantInput = productInfo.querySelector('form[id^="product-form-"] input[name="id"]');
@@ -68,6 +107,10 @@
     return Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;
   }
 
+  function getFirstDelay() {
+    return Math.floor(Math.random() * (firstMaxDelay - firstMinDelay + 1)) + firstMinDelay;
+  }
+
   function scheduleNextCycle(delay) {
     nextTimer = window.setTimeout(cycle, delay);
   }
@@ -99,5 +142,5 @@
     scheduleNextCycle(800);
   });
 
-  scheduleNextCycle(3000);
+  scheduleNextCycle(getFirstDelay());
 })();

@@ -50,30 +50,18 @@
         </div>
 
       {%- comment -%}══════════════════════
-        BLOQUE: BOTÓN RELEASIT
+        BLOQUE: BOTÓN RELEASIT (clon del botón real)
       ══════════════════════{%- endcomment -%}
       {%- elsif block.type == 'cta_releasit' -%}
-        {%- assign btn_text    = block.settings.btn_text | default: 'PEDIR CONTRAENTREGA' -%}
-        {%- assign btn_bg      = block.settings.bg_color -%}
-        {%- assign btn_color   = block.settings.text_color -%}
         {%- assign btn_pad_top = block.settings.padding_top -%}
         {%- assign btn_pad_bot = block.settings.padding_bottom -%}
 
         <div
           class="pli-block pli-block--cta pli-animate"
-          style="padding-top:{{ btn_pad_top }}px;padding-bottom:{{ btn_pad_bot }}px;background-color:{{ btn_bg }};"
+          data-pli-rsi-clone-target="true"
+          style="padding-top:{{ btn_pad_top }}px;padding-bottom:{{ btn_pad_bot }}px;"
           {{ block.shopify_attributes }}
-        >
-          <button
-            type="button"
-            class="pli-rsi-btn"
-            style="color:{{ btn_color }};"
-            data-pli-action="open_releasit"
-            aria-label="{{ btn_text }}"
-          >
-            {{ btn_text }}
-          </button>
-        </div>
+        ></div>
 
       {%- comment -%}══════════════════════
         BLOQUE: GRID DE VIDEOS (2 columnas)
@@ -270,7 +258,7 @@
     }
   </style>
 
-  {%- comment -%} ── JavaScript mínimo ────────────────────────────── {%- endcomment -%}
+  {%- comment -%} ── JavaScript ───────────────────────────────────── {%- endcomment -%}
   <script>
     (function () {
       'use strict';
@@ -279,25 +267,42 @@
       var RSI_SELECTOR  = '#_rsi-buy-now-button';
       var ANIMATE_CLASS = 'pli-animate';
       var VISIBLE_CLASS = 'pli-visible';
+      var CLONE_ATTR    = 'data-pli-rsi-clone-target';
 
-      /* ── Clic real en el botón Releasit ──────────────────────── */
-      function openReleasit() {
-        var btn = document.querySelector(RSI_SELECTOR);
-        if (btn) {
-          btn.click();
-        }
+      /* ── Inyectar clon del botón Releasit real en cada wrapper ── */
+      function injectClones(section) {
+        var wrappers = section.querySelectorAll('[' + CLONE_ATTR + ']');
+        if (!wrappers.length) return true; /* no hay bloques CTA, OK */
+
+        var original = document.querySelector(RSI_SELECTOR);
+        if (!original) return false; /* Releasit aún no ha pintado el botón */
+
+        wrappers.forEach(function (wrapper) {
+          if (wrapper.dataset.rsiInjected === 'true') return;
+
+          var clone = original.cloneNode(true);
+          clone.removeAttribute('id');
+          clone.setAttribute('data-pli-clone', 'true');
+
+          /* Al hacer clic en el clon → disparar el original */
+          clone.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            original.click();
+          });
+
+          wrapper.appendChild(clone);
+          wrapper.dataset.rsiInjected = 'true';
+        });
+
+        return true;
       }
 
-      /* ── Delegación de eventos (click en cualquier bloque CTA) ── */
-      function bindActions(section) {
-        section.addEventListener('click', function (e) {
-          var el = e.target.closest('[data-pli-action]');
-          if (!el) return;
-          if (el.getAttribute('data-pli-action') === 'open_releasit') {
-            e.preventDefault();
-            openReleasit();
-          }
-        });
+      /* Reintentar hasta que Releasit pinte su botón */
+      function tryInject(section, attemptsLeft) {
+        if (attemptsLeft <= 0) return;
+        if (injectClones(section)) return;
+        window.setTimeout(function () { tryInject(section, attemptsLeft - 1); }, 300);
       }
 
       /* ── IntersectionObserver: anima al entrar, resetea al salir */
@@ -310,7 +315,6 @@
           return;
         }
 
-        /* Entra en viewport → muestra */
         var inObs = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             if (entry.isIntersecting) {
@@ -320,7 +324,6 @@
           });
         }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
 
-        /* Sale del viewport → resetea para volver a animar */
         var outObs = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
             if (!entry.isIntersecting) {
@@ -340,7 +343,18 @@
       function init() {
         var section = document.getElementById(SECTION_ID);
         if (!section) return;
-        bindActions(section);
+
+        /* Observar el DOM por si Releasit llega después */
+        if (!injectClones(section)) {
+          var mo = new MutationObserver(function () {
+            if (document.querySelector(RSI_SELECTOR)) {
+              mo.disconnect();
+              tryInject(section, 10);
+            }
+          });
+          mo.observe(document.body, { childList: true, subtree: true });
+        }
+
         initObserver(section);
       }
 
@@ -416,30 +430,11 @@
     },
     {
       "type": "cta_releasit",
-      "name": "🛒 Botón Pedir",
+      "name": "🛒 Botón Releasit",
       "settings": [
         {
-          "type": "text",
-          "id": "btn_text",
-          "label": "Texto del botón",
-          "default": "PEDIR CONTRAENTREGA"
-        },
-        {
-          "type": "header",
-          "content": "Colores"
-        },
-        {
-          "type": "color",
-          "id": "bg_color",
-          "label": "Color de fondo del contenedor",
-          "default": "#ffffff",
-          "info": "El fondo que rodea el botón (igual que el área blanca del formulario)"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Color del texto",
-          "default": "#ffffff"
+          "type": "paragraph",
+          "content": "Muestra el mismo botón que configuraste en la app Releasit. El diseño y texto provienen directamente de Releasit."
         },
         {
           "type": "header",
@@ -452,7 +447,7 @@
           "max": 80,
           "step": 4,
           "unit": "px",
-          "label": "Espaciado superior del contenedor",
+          "label": "Espaciado superior",
           "default": 0
         },
         {
@@ -462,7 +457,7 @@
           "max": 80,
           "step": 4,
           "unit": "px",
-          "label": "Espaciado inferior del contenedor",
+          "label": "Espaciado inferior",
           "default": 0
         }
       ]

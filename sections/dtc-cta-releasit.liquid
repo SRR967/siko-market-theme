@@ -1,0 +1,142 @@
+{%- comment -%}
+  Section: dtc-cta-releasit
+  Descripción: Clona el botón REAL de Releasit (#_rsi-buy-now-button) y lo
+  muestra en esta posición. Visual 100% idéntico al botón que configuraste
+  en la app Releasit. Al hacer clic, dispara el formulario COD original.
+  Compatible con Shopify OS 2.0 / Dawn + Releasit COD Form.
+{%- endcomment -%}
+
+{%- assign pad_top = section.settings.padding_top -%}
+{%- assign pad_bot = section.settings.padding_bottom -%}
+
+<div
+  id="dtc-cta-releasit-{{ section.id }}"
+  class="dtc-cta-releasit"
+  style="padding-top:{{ pad_top }}px;padding-bottom:{{ pad_bot }}px;"
+  aria-label="Botón de compra"
+></div>
+
+<script>
+  (function () {
+    'use strict';
+
+    var WRAPPER_ID   = 'dtc-cta-releasit-{{ section.id }}';
+    var RSI_SELECTOR = '#_rsi-buy-now-button';
+
+    function injectButton() {
+      var wrapper = document.getElementById(WRAPPER_ID);
+      if (!wrapper) return false;
+
+      /* No inyectar dos veces */
+      if (wrapper.dataset.rsiInjected === 'true') return true;
+
+      var original = document.querySelector(RSI_SELECTOR);
+      if (!original) return false;
+
+      /* Clonar el nodo completo con sus clases, estilos inline y atributos */
+      var clone = original.cloneNode(true);
+
+      /* Quitar el id del clon para no duplicar IDs en el DOM */
+      clone.removeAttribute('id');
+      clone.setAttribute('data-rsi-clone', 'true');
+
+      /* Al hacer clic en el clon → disparar el clic en el botón original */
+      clone.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        original.click();
+      });
+
+      wrapper.appendChild(clone);
+      wrapper.dataset.rsiInjected = 'true';
+      return true;
+    }
+
+    /* Reintentar hasta que Releasit haya pintado su botón */
+    function tryInject(attemptsLeft) {
+      if (attemptsLeft <= 0) return;
+      if (injectButton()) return;
+      window.setTimeout(function () { tryInject(attemptsLeft - 1); }, 300);
+    }
+
+    /* MutationObserver: si Releasit inyecta el botón después del DOMContentLoaded */
+    function watchForRsiButton() {
+      if (document.querySelector(RSI_SELECTOR)) {
+        tryInject(10);
+        return;
+      }
+      var mo = new MutationObserver(function () {
+        if (document.querySelector(RSI_SELECTOR)) {
+          mo.disconnect();
+          tryInject(10);
+        }
+      });
+      mo.observe(document.body, { childList: true, subtree: true });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', watchForRsiButton);
+    } else {
+      watchForRsiButton();
+    }
+  })();
+</script>
+
+<style>
+  /* ── Wrapper: hereda el ancho completo ─────────────────────── */
+  #dtc-cta-releasit-{{ section.id }} {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  /* ── El clon debe ocupar todo el ancho igual que el original ── */
+  #dtc-cta-releasit-{{ section.id }} [data-rsi-clone] {
+    width: 100% !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "🛒 Botón Releasit",
+  "tag": "div",
+  "class": "section-dtc-cta-releasit",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Muestra el mismo botón que configuraste en la app Releasit. El diseño, color y texto provienen directamente de la configuración de Releasit, no de aquí."
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado superior",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado inferior",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Botón Releasit"
+    }
+  ]
+}
+{% endschema %}
