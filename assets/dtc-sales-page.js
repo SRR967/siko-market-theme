@@ -618,61 +618,6 @@
     productInfo.dataset.sabanasText4Inserted = 'true';
   }
 
-  function insertProductVideoGridAfterFourthImage(productInfo) {
-    if (!productInfo) return;
-
-    const description = productInfo.querySelector('.product__description');
-    if (!description || description.querySelector('.video-container-grid')) return;
-    const url1 = productInfo.getAttribute('data-dtc-video-a');
-    const url2 = productInfo.getAttribute('data-dtc-video-b');
-    if (!url1 || !url2) return;
-
-    const images = description.querySelectorAll('img');
-    if (!images.length) return;
-
-    // For cojin-sillon-para-sentar-al-bebe-2026, place after the 5th image (index 4)
-    // For others, place after the 4th image (index 3)
-    let targetIndex = 3;
-    const handle = productInfo.getAttribute('data-product-handle');
-    if (handle === 'cojin-sillon-para-sentar-al-bebe-2026') {
-      targetIndex = 4;
-    }
-
-    const index = images.length >= (targetIndex + 1) ? targetIndex : images.length - 1;
-    const targetImage = images[index];
-    const anchor = targetImage.closest('p, div, figure') || targetImage;
-
-    const grid = document.createElement('div');
-    grid.className = 'video-container-grid';
-    grid.setAttribute('data-apolo-video-grid', 'true');
-    grid.innerHTML =
-      '<div class="video-item">' +
-      '<video autoplay muted loop playsinline preload="metadata">' +
-      '<source src="' +
-      url1 +
-      '" type="video/mp4">' +
-      '</video>' +
-      '</div>' +
-      '<div class="video-item">' +
-      '<video autoplay muted loop playsinline preload="metadata">' +
-      '<source src="' +
-      url2 +
-      '" type="video/mp4">' +
-      '</video>' +
-      '</div>';
-
-    anchor.insertAdjacentElement('afterend', grid);
-  }
-
-  function scheduleVideoInsert(productInfo) {
-    insertProductVideoGridAfterFourthImage(productInfo);
-    window.requestAnimationFrame(function () {
-      insertProductVideoGridAfterFourthImage(productInfo);
-    });
-    window.setTimeout(function () {
-      insertProductVideoGridAfterFourthImage(productInfo);
-    }, 250);
-  }
 
   function stripProductInfoToDescriptionAndForm(productInfo) {
     if (!productInfo) return;
@@ -718,7 +663,6 @@
     cleanAllEmptyBlocks(productInfo);
     setupSabanasDarkHero(productInfo);
     setupBiohackAnnouncement(productInfo);
-    scheduleVideoInsert(productInfo);
     moveBuyButtonsAfterFirstImage(productInfo);
     setupSabanasImageClickToBuy(productInfo);
     setupSabanasGoldenButton(productInfo);

@@ -3887,41 +3887,7 @@ product-info[id^='MainProduct-'] .product__description.rte img.dtc-image-enter.i
   transform: translateY(0);
 }
 
-/* Apolo balsamo: two-column video strip after 4th description image */
-product-info[id^='MainProduct-'] .product__description .video-container-grid,
-product-info[id^='MainProduct-'] .product__description.rte .video-container-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 10px 0;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  background: #000;
-}
 
-product-info[id^='MainProduct-'] .product__description .video-container-grid .video-item video,
-product-info[id^='MainProduct-'] .product__description.rte .video-container-grid .video-item video {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-}
-
-@media screen and (max-width: 749px) {
-  product-info[id^='MainProduct-'] .product__description .video-container-grid,
-  product-info[id^='MainProduct-'] .product__description.rte .video-container-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    padding: 8px 0;
-  }
-}
-
-/* Cojin product: white background for video grid columns */
-product-info[data-product-handle="cojin-sillon-para-sentar-al-bebe-2026"] .product__description .video-container-grid,
-product-info[data-product-handle="cojin-sillon-para-sentar-al-bebe-2026"] .product__description.rte .video-container-grid {
-  background: #ffffff !important;
-}
 
 /* Sabanas text block – overrides for the general description reset rules */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap');

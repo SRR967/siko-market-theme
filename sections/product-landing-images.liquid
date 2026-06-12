@@ -69,11 +69,15 @@
       {%- elsif block.type == 'cta_releasit' -%}
         {%- assign btn_pad_top = block.settings.padding_top -%}
         {%- assign btn_pad_bot = block.settings.padding_bottom -%}
+        {%- assign bg_color    = block.settings.btn_bg_color -%}
+        {%- assign txt_color   = block.settings.btn_text_color -%}
 
         <div
           class="pli-block pli-block--cta pli-animate"
           data-pli-rsi-clone-target="true"
           style="padding-top:{{ btn_pad_top }}px;padding-bottom:{{ btn_pad_bot }}px;"
+          data-rsi-bg="{{ bg_color }}"
+          data-rsi-color="{{ txt_color }}"
           {{ block.shopify_attributes }}
         ></div>
 
@@ -314,6 +318,11 @@
       var VISIBLE_CLASS = 'pli-visible';
       var CLONE_ATTR    = 'data-pli-rsi-clone-target';
 
+      function applyOverrides(clone, bg, color) {
+        if (bg    && bg    !== '#ffffff') clone.style.setProperty('background-color', bg,    'important');
+        if (color && color !== '#000000') clone.style.setProperty('color',            color, 'important');
+      }
+
       /* ── Inyectar clon del botón Releasit real en cada wrapper ── */
       function injectClones(section) {
         var wrappers = section.querySelectorAll('[' + CLONE_ATTR + ']');
@@ -325,9 +334,30 @@
         wrappers.forEach(function (wrapper) {
           if (wrapper.dataset.rsiInjected === 'true') return;
 
+          var bg    = wrapper.dataset.rsiBg    || '';
+          var color = wrapper.dataset.rsiColor || '';
+
           var clone = original.cloneNode(true);
           clone.removeAttribute('id');
           clone.setAttribute('data-pli-clone', 'true');
+          applyOverrides(clone, bg, color);
+
+          /* ── Sincronizar clases y style del original → clon (animación) ── */
+          var mo = new MutationObserver(function (mutations) {
+            mutations.forEach(function (m) {
+              if (m.type === 'attributes') {
+                if (m.attributeName === 'class') {
+                  clone.className = original.className;
+                } else if (m.attributeName === 'style') {
+                  /* copiar todos los estilos inline del original */
+                  clone.style.cssText = original.style.cssText;
+                  /* re-aplicar sobreescrituras de color */
+                  applyOverrides(clone, bg, color);
+                }
+              }
+            });
+          });
+          mo.observe(original, { attributes: true, attributeFilter: ['class', 'style'] });
 
           /* Al hacer clic en el clon → disparar el original */
           clone.addEventListener('click', function (e) {
@@ -506,7 +536,25 @@
       "settings": [
         {
           "type": "paragraph",
-          "content": "Muestra el mismo botón que configuraste en la app Releasit. El diseño y texto provienen directamente de Releasit."
+          "content": "Muestra el mismo botón que configuraste en Releasit, incluyendo su animación. Opcionalmente puedes sobreescribir los colores."
+        },
+        {
+          "type": "header",
+          "content": "Color (opcional)"
+        },
+        {
+          "type": "color",
+          "id": "btn_bg_color",
+          "label": "Color de fondo del botón",
+          "default": "#ffffff",
+          "info": "Deja el valor por defecto (#ffffff) para usar el color que configuraste en Releasit"
+        },
+        {
+          "type": "color",
+          "id": "btn_text_color",
+          "label": "Color del texto",
+          "default": "#000000",
+          "info": "Deja el valor por defecto (#000000) para usar el color que configuraste en Releasit"
         },
         {
           "type": "header",
