@@ -15,7 +15,7 @@
         "image_nRQRjE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/magnific__photo-a-smiling-35yearold-hispanic-man-holds-a-yel__27661.webp",
+            "image": "shopify://shop_images/hero-hair.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -25,6 +25,8 @@
         "cta_releasit_QqpYrE": {
           "type": "cta_releasit",
           "settings": {
+            "btn_bg_color": "#2a1906",
+            "btn_text_color": "#000000",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -32,7 +34,7 @@
         "image_676UP8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__-1-precio-del-producto-precio-antes-199900-precio-__3737.webp",
+            "image": "shopify://shop_images/hair2.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -42,7 +44,7 @@
         "image_baB96z": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__caractersticas-del-producto-este-suplemento-nootrp__3738.webp",
+            "image": "shopify://shop_images/hair3.webp",
             "alt_text": "",
             "click_action": "none",
             "padding_top": 0,
@@ -52,19 +54,9 @@
         "image_eidqGb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__precio-antes199900brprecio-ahora-89900-1-primario-__97980.webp",
+            "image": "shopify://shop_images/hair_10.webp",
             "alt_text": "",
             "click_action": "none",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
-        "video_grid_nQxNjE": {
-          "type": "video_grid",
-          "settings": {
-            "video_url_a": "https://cdn.shopify.com/videos/c/o/v/30253e9902d34b0fb6e870dc40366553.mp4",
-            "video_url_b": "https://cdn.shopify.com/videos/c/o/v/ada9d869c9ba4f769c6188a04eeb309d.mp4",
-            "bg_color": "#ffffff",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -72,9 +64,19 @@
         "image_V7BA78": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__ngulo-de-venta-si-tu-dolor-diario-es-sentirte-ment__97981.webp",
+            "image": "shopify://shop_images/HAIR4.webp",
             "alt_text": "",
             "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "video_grid_nQxNjE": {
+          "type": "video_grid",
+          "settings": {
+            "video_url_a": "https://cdn.shopify.com/videos/c/o/v/901d6f6b89f844db91b028e4a2f5caf6.mp4",
+            "video_url_b": "https://cdn.shopify.com/videos/c/o/v/b3ad0b65536548fa9d4f658b07328967.mp4",
+            "bg_color": "#ffffff",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -82,17 +84,7 @@
         "image_knei4j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__caractersticas-del-producto-este-suplemento-nootrp__97982.webp",
-            "alt_text": "",
-            "click_action": "open_releasit",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
-        "image_CaL8L3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/freepik__caractersticas-del-producto-este-suplemento-nootrp__97983.webp",
+            "image": "shopify://shop_images/hair5.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -102,6 +94,18 @@
         "cta_releasit_rmnKFG": {
           "type": "cta_releasit",
           "settings": {
+            "btn_bg_color": "#2a1906",
+            "btn_text_color": "#000000",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_CaL8L3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/hair6.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -109,9 +113,18 @@
         "image_jLPDaH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cojin8.webp",
+            "image": "shopify://shop_images/hair7.webp",
             "alt_text": "",
             "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "cta_releasit_eM3NBf": {
+          "type": "cta_releasit",
+          "settings": {
+            "btn_bg_color": "#ffffff",
+            "btn_text_color": "#000000",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -119,7 +132,17 @@
         "image_dYzf8b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Cambia_el_valor_del_precio_202606112236.webp",
+            "image": "shopify://shop_images/hair8.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_nLaPK9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/hair9.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -133,13 +156,15 @@
         "image_676UP8",
         "image_baB96z",
         "image_eidqGb",
-        "video_grid_nQxNjE",
         "image_V7BA78",
+        "video_grid_nQxNjE",
         "image_knei4j",
-        "image_CaL8L3",
         "cta_releasit_rmnKFG",
+        "image_CaL8L3",
         "image_jLPDaH",
-        "image_dYzf8b"
+        "cta_releasit_eM3NBf",
+        "image_dYzf8b",
+        "image_nLaPK9"
       ],
       "name": "Landing de imágenes",
       "settings": {
