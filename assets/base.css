@@ -3612,8 +3612,10 @@ details-disclosure > details {
 
 .social-proof-popup__image-wrap {
   width: 6.4rem;
-  height: 6.4rem;
+  min-height: 6.4rem;
+  align-self: stretch;
   background: #f6f6f6;
+  flex-shrink: 0;
 }
 
 .social-proof-popup__image {
@@ -3641,13 +3643,19 @@ details-disclosure > details {
 .social-proof-popup__purchase {
   margin: 0.2rem 0 0.5rem;
   font-size: 1.5rem;
-  line-height: 1.05;
+  line-height: 1.2;
   color: #222;
   font-weight: 700;
+  /* Limitar a 2 líneas máximo */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .social-proof-popup__product {
   color: #2e7d32;
+  word-break: break-word;
 }
 
 .social-proof-popup__location {

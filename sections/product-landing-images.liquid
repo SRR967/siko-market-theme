@@ -22,10 +22,11 @@
         BLOQUE: IMAGEN
       ══════════════════════{%- endcomment -%}
       {%- if block.type == 'image' -%}
-        {%- assign img      = block.settings.image -%}
-        {%- assign alt_text = block.settings.alt_text -%}
-        {%- assign pad_top  = block.settings.padding_top -%}
-        {%- assign pad_bot  = block.settings.padding_bottom -%}
+        {%- assign img         = block.settings.image -%}
+        {%- assign alt_text    = block.settings.alt_text -%}
+        {%- assign pad_top     = block.settings.padding_top -%}
+        {%- assign pad_bot     = block.settings.padding_bottom -%}
+        {%- assign click_action = block.settings.click_action | default: 'none' -%}
 
         <div
           class="pli-block pli-block--image pli-animate"
@@ -33,6 +34,15 @@
           {{ block.shopify_attributes }}
         >
           {%- if img != blank -%}
+            {%- if click_action == 'open_releasit' -%}
+              <button
+                type="button"
+                class="pli-img-btn"
+                data-pli-img-action="open_releasit"
+                aria-label="{{ alt_text | default: img.alt | default: 'Abrir formulario de compra' }}"
+              >
+            {%- endif -%}
+
             {{- img | image_url: width: 1500 | image_tag:
                 loading: 'lazy',
                 decoding: 'async',
@@ -41,6 +51,10 @@
                 class: 'pli-image',
                 alt: alt_text | default: img.alt | default: product.title
             -}}
+
+            {%- if click_action == 'open_releasit' -%}
+              </button>
+            {%- endif -%}
           {%- else -%}
             <div class="pli-placeholder-inner">
               {{ 'image' | placeholder_svg_tag: 'pli-placeholder-svg' }}
@@ -339,10 +353,23 @@
         });
       }
 
+      /* ── Click en imágenes con acción open_releasit ─────────── */
+      function bindImageActions(section) {
+        section.addEventListener('click', function (e) {
+          var btn = e.target.closest('[data-pli-img-action="open_releasit"]');
+          if (!btn) return;
+          e.preventDefault();
+          var original = document.querySelector(RSI_SELECTOR);
+          if (original) original.click();
+        });
+      }
+
       /* ── Init ─────────────────────────────────────────────────── */
       function init() {
         var section = document.getElementById(SECTION_ID);
         if (!section) return;
+
+        bindImageActions(section);
 
         /* Observar el DOM por si Releasit llega después */
         if (!injectClones(section)) {
@@ -401,6 +428,20 @@
           "id": "alt_text",
           "label": "Texto alternativo (SEO)",
           "info": "Describe la imagen para accesibilidad y buscadores."
+        },
+        {
+          "type": "header",
+          "content": "Acción al hacer clic"
+        },
+        {
+          "type": "select",
+          "id": "click_action",
+          "label": "Acción al hacer clic",
+          "options": [
+            { "value": "none",           "label": "Ninguna" },
+            { "value": "open_releasit",  "label": "Abrir formulario Releasit (COD)" }
+          ],
+          "default": "none"
         },
         {
           "type": "header",
