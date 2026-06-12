@@ -9,6 +9,86 @@
  */
 {
   "sections": {
+    "product_landing_images_QHWXTk": {
+      "type": "product-landing-images",
+      "blocks": {
+        "image_nRQRjE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/hero.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "cta_releasit_QqpYrE": {
+          "type": "cta_releasit",
+          "settings": {
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_676UP8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/magnific__cambia-el-precio-a-169900__12982.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_baB96z": {
+          "type": "image",
+          "settings": {
+            "alt_text": "",
+            "click_action": "none",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "video_grid_nQxNjE": {
+          "type": "video_grid",
+          "settings": {
+            "video_url_a": "",
+            "video_url_b": "",
+            "bg_color": "#ffffff",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "cta_releasit_NgTJQQ": {
+          "type": "cta_releasit",
+          "settings": {
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_knei4j": {
+          "type": "image",
+          "settings": {
+            "alt_text": "",
+            "click_action": "none",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_nRQRjE",
+        "cta_releasit_QqpYrE",
+        "image_676UP8",
+        "image_baB96z",
+        "video_grid_nQxNjE",
+        "cta_releasit_NgTJQQ",
+        "image_knei4j"
+      ],
+      "name": "Landing de imágenes",
+      "settings": {
+        "hide_on_desktop": false
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -61,6 +141,7 @@
         "buy_buttons",
         "share"
       ],
+      "disabled": true,
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -76,10 +157,6 @@
         "padding_top": 36,
         "padding_bottom": 12
       }
-    },
-    "product-landing-images": {
-      "type": "product-landing-images",
-      "settings": {}
     },
     "related-products": {
       "type": "related-products",
@@ -102,8 +179,8 @@
     }
   },
   "order": [
+    "product_landing_images_QHWXTk",
     "main",
-    "product-landing-images",
     "related-products"
   ]
 }
