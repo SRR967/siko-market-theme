@@ -1,0 +1,243 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "product_landing_images_QHWXTk": {
+      "type": "product-landing-images",
+      "blocks": {
+        "image_nRQRjE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/magnific__photo-a-smiling-35yearold-hispanic-man-holds-a-yel__27661.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "cta_releasit_QqpYrE": {
+          "type": "cta_releasit",
+          "settings": {
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_676UP8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/freepik__-1-precio-del-producto-precio-antes-199900-precio-__3737.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_baB96z": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/freepik__caractersticas-del-producto-este-suplemento-nootrp__3738.webp",
+            "alt_text": "",
+            "click_action": "none",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_eidqGb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/freepik__precio-antes199900brprecio-ahora-89900-1-primario-__97980.webp",
+            "alt_text": "",
+            "click_action": "none",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "video_grid_nQxNjE": {
+          "type": "video_grid",
+          "settings": {
+            "video_url_a": "https://cdn.shopify.com/videos/c/o/v/30253e9902d34b0fb6e870dc40366553.mp4",
+            "video_url_b": "https://cdn.shopify.com/videos/c/o/v/ada9d869c9ba4f769c6188a04eeb309d.mp4",
+            "bg_color": "#ffffff",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_V7BA78": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/freepik__ngulo-de-venta-si-tu-dolor-diario-es-sentirte-ment__97981.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_knei4j": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/freepik__caractersticas-del-producto-este-suplemento-nootrp__97982.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_CaL8L3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/freepik__caractersticas-del-producto-este-suplemento-nootrp__97983.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "cta_releasit_rmnKFG": {
+          "type": "cta_releasit",
+          "settings": {
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_jLPDaH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cojin8.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_dYzf8b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Cambia_el_valor_del_precio_202606112236.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_nRQRjE",
+        "cta_releasit_QqpYrE",
+        "image_676UP8",
+        "image_baB96z",
+        "image_eidqGb",
+        "video_grid_nQxNjE",
+        "image_V7BA78",
+        "image_knei4j",
+        "image_CaL8L3",
+        "cta_releasit_rmnKFG",
+        "image_jLPDaH",
+        "image_dYzf8b"
+      ],
+      "name": "Landing de imágenes",
+      "settings": {
+        "hide_on_desktop": false
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "share"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "product_landing_images_QHWXTk",
+    "main",
+    "related-products"
+  ]
+}
