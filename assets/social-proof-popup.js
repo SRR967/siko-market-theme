@@ -1,14 +1,24 @@
 (function () {
-  const popup = document.querySelector('[data-social-proof-popup]');
-  if (!popup) return;
+  function initPopup() {
+    const popup = document.querySelector('[data-social-proof-popup]');
+    if (!popup) {
+      console.warn('[Social Proof Popup] Popup element not found.');
+      return;
+    }
 
-  const imageElement = popup.querySelector('[data-social-proof-image]');
-  const customerElement = popup.querySelector('[data-social-proof-customer]');
-  const productElement = popup.querySelector('[data-social-proof-product]');
-  const locationElement = popup.querySelector('[data-social-proof-location]');
-  const productInfo = popup.closest('product-info');
+    const imageElement = popup.querySelector('[data-social-proof-image]');
+    const customerElement = popup.querySelector('[data-social-proof-customer]');
+    const productElement = popup.querySelector('[data-social-proof-product]');
+    const locationElement = popup.querySelector('[data-social-proof-location]');
+    const productInfo = popup.closest('product-info') || document.querySelector("product-info[id^='MainProduct-']");
 
-  if (!imageElement || !customerElement || !productElement || !locationElement || !productInfo) return;
+    if (!imageElement || !customerElement || !productElement || !locationElement) {
+      console.warn('[Social Proof Popup] Missing inner elements.');
+      return;
+    }
+    if (!productInfo) {
+      console.warn('[Social Proof Popup] product-info element not found. Variant image switching may be limited.');
+    }
 
   const fallbackImage = popup.dataset.productImage || '';
   const productTitle = popup.dataset.productTitle || 'Producto';
@@ -70,7 +80,9 @@
   const fadeDuration   = 500;
 
   function getActiveVariantId() {
-    const variantInput = productInfo.querySelector('form[id^="product-form-"] input[name="id"]');
+    /* Si hay productInfo, usarlo; si no, buscar cualquier form de producto en la página */
+    const scope = productInfo || document;
+    const variantInput = scope.querySelector('form[id^="product-form-"] input[name="id"]');
     return variantInput ? variantInput.value : '';
   }
 
@@ -132,7 +144,7 @@
     const target = event.target;
     if (!(target instanceof HTMLInputElement)) return;
     if (target.name !== 'id') return;
-    if (!target.closest('product-info') || target.closest('product-info') !== productInfo) return;
+    if (productInfo && (!target.closest('product-info') || target.closest('product-info') !== productInfo)) return;
     imageElement.src = getActiveImage();
   });
 
@@ -143,4 +155,11 @@
   });
 
   scheduleNextCycle(getFirstDelay());
+  } /* fin initPopup */
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPopup);
+  } else {
+    initPopup();
+  }
 })();

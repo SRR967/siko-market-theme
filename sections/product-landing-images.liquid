@@ -71,6 +71,7 @@
         {%- assign btn_pad_bot = block.settings.padding_bottom -%}
         {%- assign bg_color    = block.settings.btn_bg_color -%}
         {%- assign txt_color   = block.settings.btn_text_color -%}
+        {%- assign anim_type   = block.settings.animation_type -%}
 
         <div
           class="pli-block pli-block--cta pli-animate"
@@ -78,6 +79,7 @@
           style="padding-top:{{ btn_pad_top }}px;padding-bottom:{{ btn_pad_bot }}px;"
           data-rsi-bg="{{ bg_color }}"
           data-rsi-color="{{ txt_color }}"
+          data-dtc-anim="{{ anim_type }}"
           {{ block.shopify_attributes }}
         ></div>
 
@@ -326,38 +328,29 @@
       /* ── Inyectar clon del botón Releasit real en cada wrapper ── */
       function injectClones(section) {
         var wrappers = section.querySelectorAll('[' + CLONE_ATTR + ']');
-        if (!wrappers.length) return true; /* no hay bloques CTA, OK */
+        if (!wrappers.length) return true;
 
         var original = document.querySelector(RSI_SELECTOR);
-        if (!original) return false; /* Releasit aún no ha pintado el botón */
+        if (!original) return false;
 
         wrappers.forEach(function (wrapper) {
           if (wrapper.dataset.rsiInjected === 'true') return;
 
           var bg    = wrapper.dataset.rsiBg    || '';
           var color = wrapper.dataset.rsiColor || '';
+          var anim  = wrapper.dataset.dtcAnim  || 'none';
 
           var clone = original.cloneNode(true);
           clone.removeAttribute('id');
           clone.setAttribute('data-pli-clone', 'true');
+          if (anim !== 'none') clone.setAttribute('data-dtc-anim', anim);
           applyOverrides(clone, bg, color);
 
-          /* ── Sincronizar clases y style del original → clon (animación) ── */
-          var mo = new MutationObserver(function (mutations) {
-            mutations.forEach(function (m) {
-              if (m.type === 'attributes') {
-                if (m.attributeName === 'class') {
-                  clone.className = original.className;
-                } else if (m.attributeName === 'style') {
-                  /* copiar todos los estilos inline del original */
-                  clone.style.cssText = original.style.cssText;
-                  /* re-aplicar sobreescrituras de color */
-                  applyOverrides(clone, bg, color);
-                }
-              }
-            });
+          /* Sincronizar clases dinámicas (si Releasit las cambia) */
+          var mo = new MutationObserver(function () {
+            clone.className = original.className;
           });
-          mo.observe(original, { attributes: true, attributeFilter: ['class', 'style'] });
+          mo.observe(original, { attributes: true, attributeFilter: ['class'] });
 
           /* Al hacer clic en el clon → disparar el original */
           clone.addEventListener('click', function (e) {
@@ -453,6 +446,8 @@
       }
     })();
   </script>
+
+  {% render 'social-proof-popup', product: product %}
 {%- endif -%}
 
 {% schema %}
@@ -555,6 +550,22 @@
           "label": "Color del texto",
           "default": "#000000",
           "info": "Deja el valor por defecto (#000000) para usar el color que configuraste en Releasit"
+        },
+        {
+          "type": "header",
+          "content": "Animación"
+        },
+        {
+          "type": "select",
+          "id": "animation_type",
+          "label": "Tipo de animación",
+          "options": [
+            { "value": "none", "label": "Ninguna (Estático)" },
+            { "value": "pulse", "label": "Latido (Pulse)" },
+            { "value": "shake", "label": "Vibración (Shake)" },
+            { "value": "bounce", "label": "Rebote (Bounce)" }
+          ],
+          "default": "pulse"
         },
         {
           "type": "header",

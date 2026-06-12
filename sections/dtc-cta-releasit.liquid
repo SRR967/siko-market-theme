@@ -9,6 +9,7 @@
 {%- assign pad_bot   = section.settings.padding_bottom -%}
 {%- assign bg_color  = section.settings.btn_bg_color -%}
 {%- assign txt_color = section.settings.btn_text_color -%}
+{%- assign anim_type = section.settings.animation_type -%}
 
 <div
   id="dtc-cta-releasit-{{ section.id }}"
@@ -16,6 +17,7 @@
   style="padding-top:{{ pad_top }}px;padding-bottom:{{ pad_bot }}px;"
   data-rsi-bg="{{ bg_color }}"
   data-rsi-color="{{ txt_color }}"
+  data-dtc-anim="{{ anim_type }}"
   aria-label="Botón de compra"
 ></div>
 
@@ -40,29 +42,20 @@
 
       var bg    = wrapper.dataset.rsiBg    || '';
       var color = wrapper.dataset.rsiColor || '';
+      var anim  = wrapper.dataset.dtcAnim  || 'none';
 
       /* ── Clonar el botón completo ── */
       var clone = original.cloneNode(true);
       clone.removeAttribute('id');
       clone.setAttribute('data-rsi-clone', 'true');
+      if (anim !== 'none') clone.setAttribute('data-dtc-anim', anim);
       applyOverrides(clone, bg, color);
 
-      /* ── Sincronizar clases y style del original → clon (animación) ── */
-      var mo = new MutationObserver(function (mutations) {
-        mutations.forEach(function (m) {
-          if (m.type === 'attributes') {
-            if (m.attributeName === 'class') {
-              clone.className = original.className;
-            } else if (m.attributeName === 'style') {
-              /* copiar todos los estilos inline del original */
-              clone.style.cssText = original.style.cssText;
-              /* re-aplicar sobreescrituras de color */
-              applyOverrides(clone, bg, color);
-            }
-          }
-        });
+      /* Sincronizar solo clases dinámicas (por si cambian por interacción) */
+      var mo = new MutationObserver(function () {
+        clone.className = original.className;
       });
-      mo.observe(original, { attributes: true, attributeFilter: ['class', 'style'] });
+      mo.observe(original, { attributes: true, attributeFilter: ['class'] });
 
       /* ── Click del clon → abre el formulario original ── */
       clone.addEventListener('click', function (e) {
@@ -138,6 +131,22 @@
       "label": "Color del texto",
       "default": "#000000",
       "info": "Deja el valor por defecto (#000000) para usar el color que configuraste en Releasit"
+    },
+    {
+      "type": "header",
+      "content": "Animación"
+    },
+    {
+      "type": "select",
+      "id": "animation_type",
+      "label": "Tipo de animación",
+      "options": [
+        { "value": "none", "label": "Ninguna (Estático)" },
+        { "value": "pulse", "label": "Latido (Pulse)" },
+        { "value": "shake", "label": "Vibración (Shake)" },
+        { "value": "bounce", "label": "Rebote (Bounce)" }
+      ],
+      "default": "pulse"
     },
     {
       "type": "header",
