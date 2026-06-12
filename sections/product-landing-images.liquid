@@ -165,6 +165,37 @@
       border: none;
     }
 
+    /* ══ IMAGEN CON ACCIÓN (botón invisible) ══════════════════ */
+    /*
+      Cuando una imagen tiene acción, se envuelve en <button>.
+      Este reset asegura que el botón sea 100% invisible —
+      sin borde, padding, fondo, ni apariencia de botón.
+    */
+    .pli-img-btn {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: none;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      font-size: 0;       /* elimina el espacio de línea de texto inline */
+      line-height: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pli-img-btn .pli-image {
+      display: block;     /* imagen ocupa todo el ancho del botón */
+      width: 100%;
+      height: auto;
+    }
+    .pli-img-btn:focus-visible {
+      outline: 3px solid #005fcc;
+      outline-offset: 2px;
+    }
+
     /* ══ BOTÓN RELEASIT ═══════════════════════════════════════ */
     /*
       Replica exactamente el .product-form__buttons del tema:
