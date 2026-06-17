@@ -25,6 +25,9 @@
         "cta_releasit_QqpYrE": {
           "type": "cta_releasit",
           "settings": {
+            "btn_bg_color": "#ffffff",
+            "btn_text_color": "#000000",
+            "animation_type": "pulse",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -45,6 +48,16 @@
             "image": "shopify://shop_images/freepik__caractersticas-del-producto-este-suplemento-nootrp__3738.webp",
             "alt_text": "",
             "click_action": "none",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_TQxcb3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2.5.webp",
+            "alt_text": "",
+            "click_action": "open_releasit",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -102,6 +115,9 @@
         "cta_releasit_rmnKFG": {
           "type": "cta_releasit",
           "settings": {
+            "btn_bg_color": "#ffffff",
+            "btn_text_color": "#000000",
+            "animation_type": "pulse",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -132,6 +148,7 @@
         "cta_releasit_QqpYrE",
         "image_676UP8",
         "image_baB96z",
+        "image_TQxcb3",
         "image_eidqGb",
         "video_grid_nQxNjE",
         "image_V7BA78",
