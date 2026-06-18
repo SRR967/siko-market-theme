@@ -74,8 +74,8 @@
 
   const firstMinDelay  = 10000; /* primera aparición: mínimo 10 s */
   const firstMaxDelay  = 20000; /* primera aparición: máximo 20 s */
-  const minDelay       = 15000; /* apariciones siguientes: mínimo 15 s */
-  const maxDelay       = 30000; /* apariciones siguientes: máximo 30 s */
+  const minDelay       = 5000;  /* apariciones siguientes: mínimo 5 s */
+  const maxDelay       = 15000; /* apariciones siguientes: máximo 15 s */
   const visibleDuration = 6000;
   const fadeDuration   = 500;
 
