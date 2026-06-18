@@ -27,7 +27,7 @@
           "settings": {
             "btn_bg_color": "#2a1906",
             "btn_text_color": "#000000",
-            "animation_type": "pulse",
+            "animation_type": "shake",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -55,9 +55,19 @@
         "image_eidqGb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/hair_10.webp",
+            "image": "shopify://shop_images/sight.webp",
             "alt_text": "",
-            "click_action": "none",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "cta_releasit_MrLQLy": {
+          "type": "cta_releasit",
+          "settings": {
+            "btn_bg_color": "#2A1906",
+            "btn_text_color": "#000000",
+            "animation_type": "none",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -95,9 +105,9 @@
         "cta_releasit_gtRpdX": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#2A1906",
+            "btn_bg_color": "#2a1906",
             "btn_text_color": "#000000",
-            "animation_type": "shake",
+            "animation_type": "none",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -127,7 +137,7 @@
           "settings": {
             "btn_bg_color": "#2a1906",
             "btn_text_color": "#000000",
-            "animation_type": "pulse",
+            "animation_type": "none",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -159,6 +169,7 @@
         "image_676UP8",
         "image_baB96z",
         "image_eidqGb",
+        "cta_releasit_MrLQLy",
         "image_V7BA78",
         "video_grid_nQxNjE",
         "image_knei4j",
