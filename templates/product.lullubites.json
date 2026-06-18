@@ -15,7 +15,7 @@
         "image_nRQRjE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/magnific__photo-a-smiling-35yearold-hispanic-man-holds-a-yel__27661.webp",
+            "image": "shopify://shop_images/imagine_prompt__A_professional__high-end_202606181658.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -25,9 +25,9 @@
         "cta_releasit_QqpYrE": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#ffffff",
+            "btn_bg_color": "#01193E",
             "btn_text_color": "#000000",
-            "animation_type": "pulse",
+            "animation_type": "shake",
             "padding_top": 0,
             "padding_bottom": 0
           }
