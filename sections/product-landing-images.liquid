@@ -210,6 +210,18 @@
     .pli-block--cta {
       display: block;
       width: 100%;
+      padding-left: 16px;
+      padding-right: 16px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .pli-block--cta [data-pli-clone],
+    .pli-block--cta [data-pli-clone] * {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .pli-block--cta [data-pli-clone] {
+      width: 100% !important;
     }
     .pli-rsi-btn {
       display: block;
