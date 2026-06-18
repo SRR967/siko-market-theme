@@ -27,6 +27,7 @@
           "settings": {
             "btn_bg_color": "#2a1906",
             "btn_text_color": "#000000",
+            "animation_type": "pulse",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -34,7 +35,7 @@
         "image_676UP8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/hair2.webp",
+            "image": "shopify://shop_images/2.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -44,7 +45,7 @@
         "image_baB96z": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/hair3.webp",
+            "image": "shopify://shop_images/3.webp",
             "alt_text": "",
             "click_action": "none",
             "padding_top": 0,
@@ -91,11 +92,12 @@
             "padding_bottom": 0
           }
         },
-        "cta_releasit_rmnKFG": {
+        "cta_releasit_gtRpdX": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#2a1906",
+            "btn_bg_color": "#2A1906",
             "btn_text_color": "#000000",
+            "animation_type": "shake",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -103,7 +105,7 @@
         "image_CaL8L3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/hair6.webp",
+            "image": "shopify://shop_images/step.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -123,8 +125,9 @@
         "cta_releasit_eM3NBf": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#ffffff",
+            "btn_bg_color": "#2a1906",
             "btn_text_color": "#000000",
+            "animation_type": "pulse",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -132,7 +135,7 @@
         "image_dYzf8b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/hair8.webp",
+            "image": "shopify://shop_images/testimonios.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -142,7 +145,7 @@
         "image_nLaPK9": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/hair9.webp",
+            "image": "shopify://shop_images/cta.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -159,7 +162,7 @@
         "image_V7BA78",
         "video_grid_nQxNjE",
         "image_knei4j",
-        "cta_releasit_rmnKFG",
+        "cta_releasit_gtRpdX",
         "image_CaL8L3",
         "image_jLPDaH",
         "cta_releasit_eM3NBf",
