@@ -25,7 +25,7 @@
         "cta_releasit_QqpYrE": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#01193E",
+            "btn_bg_color": "#01193e",
             "btn_text_color": "#000000",
             "animation_type": "shake",
             "padding_top": 0,
@@ -75,8 +75,8 @@
         "video_grid_nQxNjE": {
           "type": "video_grid",
           "settings": {
-            "video_url_a": "https://cdn.shopify.com/videos/c/o/v/30253e9902d34b0fb6e870dc40366553.mp4",
-            "video_url_b": "https://cdn.shopify.com/videos/c/o/v/ada9d869c9ba4f769c6188a04eeb309d.mp4",
+            "video_url_a": "https://cdn.shopify.com/videos/c/o/v/5278bcaef91240bba85821f10219a7e0.mp4",
+            "video_url_b": "https://cdn.shopify.com/videos/c/o/v/7b54c56989ed4baa8ad968561dae3d8d.mp4",
             "bg_color": "#ffffff",
             "padding_top": 0,
             "padding_bottom": 0
@@ -85,7 +85,7 @@
         "image_V7BA78": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__ngulo-de-venta-si-tu-dolor-diario-es-sentirte-ment__97981.webp",
+            "image": "shopify://shop_images/brand____LullaBites____project____Lanzamiento_202606242345.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -95,7 +95,7 @@
         "image_knei4j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__caractersticas-del-producto-este-suplemento-nootrp__97982.webp",
+            "image": "shopify://shop_images/LullaBites_Sleep_Gummies_steps_202606250027.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -105,7 +105,7 @@
         "image_CaL8L3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__caractersticas-del-producto-este-suplemento-nootrp__97983.webp",
+            "image": "shopify://shop_images/Tabla_comparativa_LullaBites_pro__202606251343.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -115,9 +115,9 @@
         "cta_releasit_rmnKFG": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#ffffff",
+            "btn_bg_color": "#01193E",
             "btn_text_color": "#000000",
-            "animation_type": "pulse",
+            "animation_type": "none",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -125,7 +125,7 @@
         "image_jLPDaH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/fqa.webp",
+            "image": "shopify://shop_images/Preguntas_Frecuentes_LullaBites___202606251404.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -135,7 +135,7 @@
         "image_dYzf8b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Cambia_el_valor_del_precio_202606112236.webp",
+            "image": "shopify://shop_images/prompt_type____ecommerce_direct_response_cta_section____image_ingredient_instructions____MUST_202606251442.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
