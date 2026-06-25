@@ -47,7 +47,7 @@
           "settings": {
             "image": "shopify://shop_images/LullaBites_Sleep_Gummies_launch_202606182132.webp",
             "alt_text": "",
-            "click_action": "none",
+            "click_action": "open_releasit",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -67,7 +67,7 @@
           "settings": {
             "image": "shopify://shop_images/Clientes_opinan_sobre_LullaBites_202606182322.webp",
             "alt_text": "",
-            "click_action": "none",
+            "click_action": "open_releasit",
             "padding_top": 0,
             "padding_bottom": 0
           }
