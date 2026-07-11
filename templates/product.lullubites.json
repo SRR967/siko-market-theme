@@ -15,7 +15,7 @@
         "image_nRQRjE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/imagine_prompt__A_professional__high-end_202606181658.webp",
+            "image": "shopify://shop_images/Supplement_advertisement_problem__2K_202607110018.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -115,7 +115,7 @@
         "cta_releasit_rmnKFG": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#01193E",
+            "btn_bg_color": "#01193e",
             "btn_text_color": "#000000",
             "animation_type": "none",
             "padding_top": 0,
@@ -135,7 +135,7 @@
         "image_dYzf8b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/prompt_type____ecommerce_direct_response_cta_section____image_ingredient_instructions____MUST_202606251442.webp",
+            "image": "shopify://shop_images/Product_showcase_pricing_CTA_202607110027.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
