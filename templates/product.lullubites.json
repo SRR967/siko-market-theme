@@ -15,7 +15,7 @@
         "image_nRQRjE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Supplement_advertisement_problem__2K_202607152306.webp",
+            "image": "shopify://shop_images/Supplement_advertisement_problem__2K_202607251617.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -42,20 +42,20 @@
             "padding_bottom": 0
           }
         },
-        "image_baB96z": {
+        "image_TQxcb3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/LullaBites_Sleep_Gummies_launch_202606182132.webp",
+            "image": "shopify://shop_images/LullaBites_premium_formula_quality_202606182140.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
             "padding_bottom": 0
           }
         },
-        "image_TQxcb3": {
+        "image_baB96z": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/LullaBites_premium_formula_quality_202606182140.webp",
+            "image": "shopify://shop_images/LullaBites_Sleep_Gummies_launch_202606182132.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -135,7 +135,7 @@
         "image_dYzf8b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Product_showcase_pricing_CTA_202607110027.webp",
+            "image": "shopify://shop_images/Product_showcase_pricing_CTA_2K_202607251622.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -147,8 +147,8 @@
         "image_nRQRjE",
         "cta_releasit_QqpYrE",
         "image_676UP8",
-        "image_baB96z",
         "image_TQxcb3",
+        "image_baB96z",
         "image_eidqGb",
         "video_grid_nQxNjE",
         "image_V7BA78",
