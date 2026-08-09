@@ -25,7 +25,7 @@
         "cta_releasit_QqpYrE": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#512E18",
+            "btn_bg_color": "#512e18",
             "btn_text_color": "#000000",
             "animation_type": "pulse",
             "padding_top": 0,
@@ -75,8 +75,8 @@
         "video_grid_nQxNjE": {
           "type": "video_grid",
           "settings": {
-            "video_url_a": "https://cdn.shopify.com/videos/c/o/v/30253e9902d34b0fb6e870dc40366553.mp4",
-            "video_url_b": "https://cdn.shopify.com/videos/c/o/v/ada9d869c9ba4f769c6188a04eeb309d.mp4",
+            "video_url_a": "https://cdn.shopify.com/videos/c/o/v/999ce1ccb73041c28f2200ad629ecabb.mp4",
+            "video_url_b": "https://cdn.shopify.com/videos/c/o/v/3841939c25f449c4b3621edeb4fdaf73.mp4",
             "bg_color": "#ffffff",
             "padding_top": 0,
             "padding_bottom": 0
@@ -115,7 +115,7 @@
         "cta_releasit_rmnKFG": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#512E18",
+            "btn_bg_color": "#512e18",
             "btn_text_color": "#000000",
             "animation_type": "pulse",
             "padding_top": 0,
