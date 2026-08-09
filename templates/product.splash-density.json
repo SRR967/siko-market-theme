@@ -15,7 +15,7 @@
         "image_nRQRjE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/magnific__photo-a-smiling-35yearold-hispanic-man-holds-a-yel__27661.webp",
+            "image": "shopify://shop_images/spec_1.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -25,7 +25,7 @@
         "cta_releasit_QqpYrE": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#ffffff",
+            "btn_bg_color": "#512E18",
             "btn_text_color": "#000000",
             "animation_type": "pulse",
             "padding_top": 0,
@@ -35,7 +35,7 @@
         "image_676UP8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__-1-precio-del-producto-precio-antes-199900-precio-__3737.webp",
+            "image": "shopify://shop_images/spec_2.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -45,7 +45,7 @@
         "image_baB96z": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__caractersticas-del-producto-este-suplemento-nootrp__3738.webp",
+            "image": "shopify://shop_images/spec_3.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -55,7 +55,7 @@
         "image_TQxcb3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/2.5.webp",
+            "image": "shopify://shop_images/spec_4.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -65,7 +65,7 @@
         "image_eidqGb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__precio-antes199900brprecio-ahora-89900-1-primario-__97980.webp",
+            "image": "shopify://shop_images/spec_5.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -85,7 +85,7 @@
         "image_V7BA78": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__ngulo-de-venta-si-tu-dolor-diario-es-sentirte-ment__97981.webp",
+            "image": "shopify://shop_images/spec_6.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -95,7 +95,7 @@
         "image_knei4j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__caractersticas-del-producto-este-suplemento-nootrp__97982.webp",
+            "image": "shopify://shop_images/spec_7.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -105,7 +105,7 @@
         "image_CaL8L3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/freepik__caractersticas-del-producto-este-suplemento-nootrp__97983.webp",
+            "image": "shopify://shop_images/spec_8.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -115,7 +115,7 @@
         "cta_releasit_rmnKFG": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#ffffff",
+            "btn_bg_color": "#512E18",
             "btn_text_color": "#000000",
             "animation_type": "pulse",
             "padding_top": 0,
@@ -125,7 +125,7 @@
         "image_jLPDaH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/fqa.webp",
+            "image": "shopify://shop_images/spec_9.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -135,7 +135,7 @@
         "image_dYzf8b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Cambia_el_valor_del_precio_202606112236.webp",
+            "image": "shopify://shop_images/spec_10.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
