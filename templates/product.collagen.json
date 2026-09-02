@@ -15,7 +15,7 @@
         "image_nRQRjE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/hero-hair.webp",
+            "image": "shopify://shop_images/multi_1.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -35,7 +35,7 @@
         "image_676UP8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/2.webp",
+            "image": "shopify://shop_images/multi_2.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -45,7 +45,7 @@
         "image_baB96z": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/3.webp",
+            "image": "shopify://shop_images/multi_3.webp",
             "alt_text": "",
             "click_action": "none",
             "padding_top": 0,
@@ -55,7 +55,7 @@
         "image_eidqGb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/sight.webp",
+            "image": "shopify://shop_images/multi_4.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -65,7 +65,7 @@
         "cta_releasit_MrLQLy": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#2A1906",
+            "btn_bg_color": "#2a1906",
             "btn_text_color": "#000000",
             "animation_type": "none",
             "padding_top": 0,
@@ -75,7 +75,7 @@
         "image_V7BA78": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/HAIR4.webp",
+            "image": "shopify://shop_images/multi_5_antes.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -85,8 +85,8 @@
         "video_grid_nQxNjE": {
           "type": "video_grid",
           "settings": {
-            "video_url_a": "https://cdn.shopify.com/videos/c/o/v/901d6f6b89f844db91b028e4a2f5caf6.mp4",
-            "video_url_b": "https://cdn.shopify.com/videos/c/o/v/b3ad0b65536548fa9d4f658b07328967.mp4",
+            "video_url_a": "https://cdn.shopify.com/videos/c/o/v/c0144697e03d4c7d9d5a90dfe33793d0.mp4",
+            "video_url_b": "https://cdn.shopify.com/videos/c/o/v/62be6622eb05477487371d4d5b33691c.mp4",
             "bg_color": "#ffffff",
             "padding_top": 0,
             "padding_bottom": 0
@@ -95,7 +95,7 @@
         "image_knei4j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/hair5.webp",
+            "image": "shopify://shop_images/multi_5.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -115,7 +115,7 @@
         "image_CaL8L3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/step.webp",
+            "image": "shopify://shop_images/multi_6.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -125,7 +125,7 @@
         "image_jLPDaH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/hair7.webp",
+            "image": "shopify://shop_images/multi_8.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -145,7 +145,7 @@
         "image_dYzf8b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/testimonios.webp",
+            "image": "shopify://shop_images/multi_9.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -155,7 +155,7 @@
         "image_nLaPK9": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cta.webp",
+            "image": "shopify://shop_images/multi_10.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
