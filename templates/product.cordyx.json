@@ -15,7 +15,7 @@
         "image_nRQRjE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Supplement_advertisement_problem__2K_202607251617.webp",
+            "image": "shopify://shop_images/1_hero.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -25,7 +25,7 @@
         "cta_releasit_QqpYrE": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#01193e",
+            "btn_bg_color": "#512E18",
             "btn_text_color": "#000000",
             "animation_type": "shake",
             "padding_top": 0,
@@ -35,7 +35,7 @@
         "image_676UP8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/brand____LullaBites____project____Lanzamiento_202606182050.webp",
+            "image": "shopify://shop_images/2_offer.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -45,7 +45,7 @@
         "image_TQxcb3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Copia_de_LullaBites_premium_formula_202608091035.webp",
+            "image": "shopify://shop_images/3_beforeafter.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -55,7 +55,7 @@
         "image_baB96z": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/LullaBites_Sleep_Gummies_launch_202606182132.webp",
+            "image": "shopify://shop_images/4_benefits1.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -65,19 +65,9 @@
         "image_eidqGb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Clientes_opinan_sobre_LullaBites_202606182322.webp",
+            "image": "shopify://shop_images/5_comparison.webp",
             "alt_text": "",
             "click_action": "open_releasit",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
-        "video_grid_nQxNjE": {
-          "type": "video_grid",
-          "settings": {
-            "video_url_a": "https://cdn.shopify.com/videos/c/o/v/5278bcaef91240bba85821f10219a7e0.mp4",
-            "video_url_b": "https://cdn.shopify.com/videos/c/o/v/7b54c56989ed4baa8ad968561dae3d8d.mp4",
-            "bg_color": "#ffffff",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -85,7 +75,7 @@
         "image_V7BA78": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/brand____LullaBites____project____Lanzamiento_202606242345.webp",
+            "image": "shopify://shop_images/6_authority.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -95,7 +85,7 @@
         "image_knei4j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/LullaBites_Sleep_Gummies_steps_202606250027.webp",
+            "image": "shopify://shop_images/7_socialproof.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -105,7 +95,7 @@
         "image_CaL8L3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Tabla_comparativa_LullaBites_pro__202606251343.webp",
+            "image": "shopify://shop_images/8_howitworks.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -115,7 +105,7 @@
         "cta_releasit_rmnKFG": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#01193e",
+            "btn_bg_color": "#512E18",
             "btn_text_color": "#000000",
             "animation_type": "none",
             "padding_top": 0,
@@ -125,7 +115,7 @@
         "image_jLPDaH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Preguntas_Frecuentes_LullaBites___202606251404.webp",
+            "image": "shopify://shop_images/9_faq.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -135,7 +125,7 @@
         "image_dYzf8b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Product_showcase_pricing_CTA_2K_202607251622.webp",
+            "image": "shopify://shop_images/10_logistics.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -150,7 +140,6 @@
         "image_TQxcb3",
         "image_baB96z",
         "image_eidqGb",
-        "video_grid_nQxNjE",
         "image_V7BA78",
         "image_knei4j",
         "image_CaL8L3",
