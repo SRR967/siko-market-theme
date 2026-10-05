@@ -15,7 +15,7 @@
         "image_nRQRjE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/hero-hair.webp",
+            "image": "shopify://shop_images/Clarito_natural_con_manzanilla_y_miel-1.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -25,8 +25,8 @@
         "cta_releasit_QqpYrE": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#2a1906",
-            "btn_text_color": "#000000",
+            "btn_bg_color": "#F3E651",
+            "btn_text_color": "#2A1906",
             "animation_type": "shake",
             "padding_top": 0,
             "padding_bottom": 0
@@ -35,7 +35,7 @@
         "image_676UP8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/2.webp",
+            "image": "shopify://shop_images/Cuidando_sus_reflejos_naturales_juntas-2.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -45,7 +45,7 @@
         "image_baB96z": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/3.webp",
+            "image": "shopify://shop_images/Reflejos_dorados_y_cuidado_suave-3.webp",
             "alt_text": "",
             "click_action": "none",
             "padding_top": 0,
@@ -55,7 +55,7 @@
         "image_eidqGb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/sight.webp",
+            "image": "shopify://shop_images/Dos_pasos_para_reflejos_claros-4.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -65,8 +65,8 @@
         "cta_releasit_MrLQLy": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#2A1906",
-            "btn_text_color": "#000000",
+            "btn_bg_color": "#F3E651",
+            "btn_text_color": "#01193E",
             "animation_type": "none",
             "padding_top": 0,
             "padding_bottom": 0
@@ -75,7 +75,7 @@
         "image_V7BA78": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/HAIR4.webp",
+            "image": "shopify://shop_images/Rutina_capilar_con_Kit_Gold-5.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -84,6 +84,7 @@
         },
         "video_grid_nQxNjE": {
           "type": "video_grid",
+          "disabled": true,
           "settings": {
             "video_url_a": "https://cdn.shopify.com/videos/c/o/v/901d6f6b89f844db91b028e4a2f5caf6.mp4",
             "video_url_b": "https://cdn.shopify.com/videos/c/o/v/b3ad0b65536548fa9d4f658b07328967.mp4",
@@ -95,7 +96,7 @@
         "image_knei4j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/hair5.webp",
+            "image": "shopify://shop_images/Cuatro_pasos_para_una_rutina_capilar-8.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -105,8 +106,8 @@
         "cta_releasit_gtRpdX": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#2a1906",
-            "btn_text_color": "#000000",
+            "btn_bg_color": "#F3E651",
+            "btn_text_color": "#512E18",
             "animation_type": "none",
             "padding_top": 0,
             "padding_bottom": 0
@@ -115,17 +116,7 @@
         "image_CaL8L3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/step.webp",
-            "alt_text": "",
-            "click_action": "open_releasit",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
-        "image_jLPDaH": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/hair7.webp",
+            "image": "shopify://shop_images/KIT_GOLD_vs._manzanilla_casera-9.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -135,27 +126,17 @@
         "cta_releasit_eM3NBf": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#2a1906",
-            "btn_text_color": "#000000",
+            "btn_bg_color": "#F3E651",
+            "btn_text_color": "#38393B",
             "animation_type": "none",
             "padding_top": 0,
             "padding_bottom": 0
           }
         },
-        "image_dYzf8b": {
+        "image_jLPDaH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/testimonios.webp",
-            "alt_text": "",
-            "click_action": "open_releasit",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
-        "image_nLaPK9": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/cta.webp",
+            "image": "shopify://shop_images/Kit_Gold_aclarador_premium-10.webp",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -175,10 +156,8 @@
         "image_knei4j",
         "cta_releasit_gtRpdX",
         "image_CaL8L3",
-        "image_jLPDaH",
         "cta_releasit_eM3NBf",
-        "image_dYzf8b",
-        "image_nLaPK9"
+        "image_jLPDaH"
       ],
       "name": "Landing de imágenes",
       "settings": {
