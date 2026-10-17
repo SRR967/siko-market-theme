@@ -15,7 +15,7 @@
         "image_nRQRjE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/1_hero.webp",
+            "image": "shopify://shop_images/silicona-01_hero_v2.jpg",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -25,7 +25,7 @@
         "cta_releasit_QqpYrE": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#512E18",
+            "btn_bg_color": "#549231",
             "btn_text_color": "#000000",
             "animation_type": "shake",
             "padding_top": 0,
@@ -35,7 +35,7 @@
         "image_676UP8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/2_offer.webp",
+            "image": "shopify://shop_images/03_antes_despues.jpg",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -45,7 +45,7 @@
         "image_TQxcb3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/3_beforeafter.webp",
+            "image": "shopify://shop_images/04_beneficios.jpg",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -55,47 +55,7 @@
         "image_baB96z": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/4_benefits1.webp",
-            "alt_text": "",
-            "click_action": "open_releasit",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
-        "image_eidqGb": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/5_comparison.webp",
-            "alt_text": "",
-            "click_action": "open_releasit",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
-        "image_V7BA78": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/6_authority.webp",
-            "alt_text": "",
-            "click_action": "open_releasit",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
-        "image_knei4j": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/7_socialproof.webp",
-            "alt_text": "",
-            "click_action": "open_releasit",
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
-        "image_CaL8L3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/8_howitworks.webp",
+            "image": "shopify://shop_images/05_mecanismo.jpg",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -105,9 +65,49 @@
         "cta_releasit_rmnKFG": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#512E18",
+            "btn_bg_color": "#512e18",
             "btn_text_color": "#000000",
             "animation_type": "none",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_eidqGb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/06_transformacion.jpg",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_V7BA78": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/07_autoridad.jpg",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_knei4j": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/08_resenas.jpg",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_CaL8L3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/09_como_usar.jpg",
+            "alt_text": "",
+            "click_action": "open_releasit",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -115,7 +115,7 @@
         "image_jLPDaH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/9_faq.webp",
+            "image": "shopify://shop_images/10_comparacion.jpg",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -125,7 +125,47 @@
         "image_dYzf8b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/10_logistics.webp",
+            "image": "shopify://shop_images/11_todo_lo_que_recibes.jpg",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_jaL3mU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/12_oferta.jpg",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_jGHVKL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/13_garantia.jpg",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_HDeU6F": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/14_preguntas.jpg",
+            "alt_text": "",
+            "click_action": "open_releasit",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "image_dPciBJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/15_cierre.jpg",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -139,13 +179,17 @@
         "image_676UP8",
         "image_TQxcb3",
         "image_baB96z",
+        "cta_releasit_rmnKFG",
         "image_eidqGb",
         "image_V7BA78",
         "image_knei4j",
         "image_CaL8L3",
-        "cta_releasit_rmnKFG",
         "image_jLPDaH",
-        "image_dYzf8b"
+        "image_dYzf8b",
+        "image_jaL3mU",
+        "image_jGHVKL",
+        "image_HDeU6F",
+        "image_dPciBJ"
       ],
       "name": "Landing de imágenes",
       "settings": {
