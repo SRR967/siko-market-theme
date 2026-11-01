@@ -15,7 +15,7 @@
         "image_nRQRjE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/01.webp",
+            "image": "shopify://shop_images/01.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -35,7 +35,7 @@
         "image_676UP8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/02.webp",
+            "image": "shopify://shop_images/03.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -45,7 +45,7 @@
         "image_TQxcb3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/03.webp",
+            "image": "shopify://shop_images/04.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -55,7 +55,7 @@
         "image_baB96z": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/04.webp",
+            "image": "shopify://shop_images/05.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -65,7 +65,7 @@
         "image_eidqGb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/06.webp",
+            "image": "shopify://shop_images/06.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -75,7 +75,7 @@
         "image_V7BA78": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/07.webp",
+            "image": "shopify://shop_images/07.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -85,7 +85,7 @@
         "image_knei4j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/08.webp",
+            "image": "shopify://shop_images/08.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -95,7 +95,7 @@
         "image_CaL8L3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/09.webp",
+            "image": "shopify://shop_images/09.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -115,7 +115,7 @@
         "image_jLPDaH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/10.webp",
+            "image": "shopify://shop_images/10.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -125,7 +125,7 @@
         "image_dYzf8b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/11.webp",
+            "image": "shopify://shop_images/11.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -145,7 +145,7 @@
         "image_khftMN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/12.webp",
+            "image": "shopify://shop_images/12.png",
             "alt_text": "",
             "click_action": "none",
             "padding_top": 0,
@@ -155,7 +155,7 @@
         "image_i6GtQ9": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/13.webp",
+            "image": "shopify://shop_images/13.png",
             "alt_text": "",
             "click_action": "none",
             "padding_top": 0,
@@ -165,7 +165,7 @@
         "image_PqTpEG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/14.webp",
+            "image": "shopify://shop_images/14.png",
             "alt_text": "",
             "click_action": "none",
             "padding_top": 0,
@@ -175,7 +175,7 @@
         "image_jr9pQc": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/15.webp",
+            "image": "shopify://shop_images/15.png",
             "alt_text": "",
             "click_action": "none",
             "padding_top": 0,
