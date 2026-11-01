@@ -147,7 +147,7 @@
           "settings": {
             "image": "shopify://shop_images/12.png",
             "alt_text": "",
-            "click_action": "none",
+            "click_action": "open_releasit",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -157,7 +157,7 @@
           "settings": {
             "image": "shopify://shop_images/13.png",
             "alt_text": "",
-            "click_action": "none",
+            "click_action": "open_releasit",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -167,7 +167,7 @@
           "settings": {
             "image": "shopify://shop_images/14.png",
             "alt_text": "",
-            "click_action": "none",
+            "click_action": "open_releasit",
             "padding_top": 0,
             "padding_bottom": 0
           }
@@ -177,7 +177,7 @@
           "settings": {
             "image": "shopify://shop_images/15.png",
             "alt_text": "",
-            "click_action": "none",
+            "click_action": "open_releasit",
             "padding_top": 0,
             "padding_bottom": 0
           }
