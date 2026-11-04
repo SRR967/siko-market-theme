@@ -105,7 +105,7 @@
         "cta_releasit_rmnKFG": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#512e18",
+            "btn_bg_color": "#5B3F8C",
             "btn_text_color": "#000000",
             "animation_type": "none",
             "padding_top": 0,
@@ -135,7 +135,7 @@
         "cta_releasit_JJpCyd": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#512e18",
+            "btn_bg_color": "#5B3F8C",
             "btn_text_color": "#000000",
             "animation_type": "none",
             "padding_top": 0,
