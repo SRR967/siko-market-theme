@@ -15,7 +15,7 @@
         "image_nRQRjE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/01_allday.png",
+            "image": "shopify://shop_images/01_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -25,7 +25,7 @@
         "cta_releasit_QqpYrE": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#5B3F8C",
+            "btn_bg_color": "#5b3f8c",
             "btn_text_color": "#000000",
             "animation_type": "shake",
             "padding_top": 0,
@@ -35,7 +35,7 @@
         "image_676UP8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/03_allday.png",
+            "image": "shopify://shop_images/03_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -45,7 +45,7 @@
         "image_TQxcb3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/04_allday.png",
+            "image": "shopify://shop_images/04_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -55,7 +55,7 @@
         "image_baB96z": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/05_allday.png",
+            "image": "shopify://shop_images/05_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -65,7 +65,7 @@
         "image_eidqGb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/06_allday.png",
+            "image": "shopify://shop_images/06_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -75,7 +75,7 @@
         "image_V7BA78": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/07_allday.png",
+            "image": "shopify://shop_images/07_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -85,7 +85,7 @@
         "image_knei4j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/08_allday.png",
+            "image": "shopify://shop_images/08_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -95,7 +95,7 @@
         "image_CaL8L3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/09_allday.png",
+            "image": "shopify://shop_images/09_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -105,7 +105,7 @@
         "cta_releasit_rmnKFG": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#5B3F8C",
+            "btn_bg_color": "#5b3f8c",
             "btn_text_color": "#000000",
             "animation_type": "none",
             "padding_top": 0,
@@ -115,7 +115,7 @@
         "image_jLPDaH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/10_allday.png",
+            "image": "shopify://shop_images/10_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -125,7 +125,7 @@
         "image_dYzf8b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/11_allday.png",
+            "image": "shopify://shop_images/11_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -135,7 +135,7 @@
         "cta_releasit_JJpCyd": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#5B3F8C",
+            "btn_bg_color": "#5b3f8c",
             "btn_text_color": "#000000",
             "animation_type": "none",
             "padding_top": 0,
@@ -145,7 +145,7 @@
         "image_khftMN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/12_allday.png",
+            "image": "shopify://shop_images/12_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -155,7 +155,7 @@
         "image_i6GtQ9": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/13_allday.png",
+            "image": "shopify://shop_images/13_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -165,7 +165,7 @@
         "image_PqTpEG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/14_allday.png",
+            "image": "shopify://shop_images/14_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -175,7 +175,7 @@
         "image_jr9pQc": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/15_allday.png",
+            "image": "shopify://shop_images/15_belani.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
