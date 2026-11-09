@@ -145,7 +145,7 @@
         "image_khftMN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/12_belani.png",
+            "image": "shopify://shop_images/12_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -155,7 +155,7 @@
         "image_i6GtQ9": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/13_belani.png",
+            "image": "shopify://shop_images/13_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -165,7 +165,7 @@
         "image_PqTpEG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/14_belani.png",
+            "image": "shopify://shop_images/14_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -175,7 +175,7 @@
         "image_jr9pQc": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/15_belani.png",
+            "image": "shopify://shop_images/15_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
