@@ -15,7 +15,7 @@
         "image_nRQRjE": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/01_belani.png",
+            "image": "shopify://shop_images/01_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -25,7 +25,7 @@
         "cta_releasit_QqpYrE": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#5b3f8c",
+            "btn_bg_color": "#549231",
             "btn_text_color": "#000000",
             "animation_type": "shake",
             "padding_top": 0,
@@ -35,7 +35,7 @@
         "image_676UP8": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/03_belani.png",
+            "image": "shopify://shop_images/03_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -45,7 +45,7 @@
         "image_TQxcb3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/04_belani.png",
+            "image": "shopify://shop_images/04_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -55,7 +55,7 @@
         "image_baB96z": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/05_belani.png",
+            "image": "shopify://shop_images/05_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -65,7 +65,7 @@
         "image_eidqGb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/06_belani.png",
+            "image": "shopify://shop_images/06_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -75,7 +75,7 @@
         "image_V7BA78": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/07_belani.png",
+            "image": "shopify://shop_images/07_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -85,7 +85,7 @@
         "image_knei4j": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/08_belani.png",
+            "image": "shopify://shop_images/08_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -95,7 +95,7 @@
         "image_CaL8L3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/09_belani.png",
+            "image": "shopify://shop_images/09_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -105,7 +105,7 @@
         "cta_releasit_rmnKFG": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#5b3f8c",
+            "btn_bg_color": "#549231",
             "btn_text_color": "#000000",
             "animation_type": "none",
             "padding_top": 0,
@@ -115,7 +115,7 @@
         "image_jLPDaH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/10_belani.png",
+            "image": "shopify://shop_images/10_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -125,7 +125,7 @@
         "image_dYzf8b": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/11_belani.png",
+            "image": "shopify://shop_images/11_cobija.png",
             "alt_text": "",
             "click_action": "open_releasit",
             "padding_top": 0,
@@ -135,7 +135,7 @@
         "cta_releasit_JJpCyd": {
           "type": "cta_releasit",
           "settings": {
-            "btn_bg_color": "#5b3f8c",
+            "btn_bg_color": "#549231",
             "btn_text_color": "#000000",
             "animation_type": "none",
             "padding_top": 0,
